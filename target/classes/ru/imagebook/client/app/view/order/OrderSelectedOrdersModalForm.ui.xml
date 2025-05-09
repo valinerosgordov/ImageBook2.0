@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <im:ModalDialog ui:field="orderSelectedOrdersModalForm" dialogId="orderSelectedOrdersModalFormId"
+                    okButtonTitle="Положить в корзину" cancelButtonTitle="Отменить">
+        <im:header>
+            <g:HTMLPanel tag="h4" styleName="modal-title">Подтверждение заказа</g:HTMLPanel>
+        </im:header>
+        <im:body>
+            <g:HTMLPanel tag="div">
+                <im:XCheckBox ui:field="acceptXCheckBox" text="Я посмотрел макеты всех выбранных заказов и подтверждаю их печать.
+                Отказываюсь от претензий в случае обнаружения недочетов, допущенных мной в макетах."/>
+            </g:HTMLPanel>
+        </im:body>
+    </im:ModalDialog>
+</ui:UiBinder>

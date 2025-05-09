@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="OrderImpl" proxy="Order" table="`order`">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="number" not-null="true" unique="true" />
+		<many-to-one name="user" not-null="true" />
+		<property name="date" not-null="true" />
+		<many-to-one name="product" class="ProductImpl" not-null="true" />
+		<property name="state" not-null="true" />
+		<property name="quantity" not-null="true" />
+		<property name="flash" />
+		<property name="price" column="price" not-null="true" />
+		<property name="cost" column="cost" not-null="true" />
+		<property name="phPrice" column="phPrice" not-null="true" />
+		<property name="phCost" column="phCost" not-null="true" />
+		<property name="rejectComment" column="reject_comment" />
+		<property name="pageCount" column="page_count" not-null="true" />
+		<property name="trial" not-null="true" />
+		<property name="itemWeight" />
+		<property name="totalWeight" />
+		<property name="inRequestBasket" column="in_request_basket" not-null="true" />
+		<many-to-one name="color" not-null="true" />
+		<many-to-one name="address" class="ru.imagebook.shared.model.Address" column="address_id" unique="true" cascade="all" />
+		<many-to-one name="request" column="request_id" />
+		<property name="coverLamination" column="cover_lamination" not-null="true" />
+		<property name="pageLamination" column="page_lamination" not-null="true" />
+		<many-to-one name="bonusCode" column="bonus_code" cascade="all" />
+		<property name="bonusCodeText" />
+		<property name="deactivationCode" />
+		<property name="couponId" />
+		<many-to-one name="bill" column="bill_id" />
+		<property name="level" />
+		<property name="deliveryType" column="delivery_type" />
+		<property name="deliveryCode" column="delivery_code" />
+		<property name="comment" type="text" />
+		<property name="publishFlash" column="publish_flash" not-null="true" />
+		<many-to-one name="layout" column="layout_id" unique="true" cascade="all" />
+		<property name="type" not-null="true" />
+		<property name="printDate" column="print_date" />
+		<property name="webFlash" column="web_flash" not-null="true" />
+		<property name="storageState" not-null="true" />
+		<property name="sentDate" />
+		<property name="discountPc" not-null="true" />
+		<property name="deliveryComment" type="text" />
+		<property name="discountSum" />
+		<property name="code" />
+		<property name="urgent" not-null="true" />
+		<property name="specialPrice" column="special_price" />
+		<property name="importId" />
+		<property name="payDate" column="pay_date" />
+		<property name="discountPCenter" />
+		<property name="packageNumber" column="package_number"/>
+		<property name="publishCode" column="publish_code" unique="true" />
+        <property name="modifiedDate" column="modified_date" not-null="true"/>
+		<many-to-one name="flyleaf" column="flyleaf_id" />
+		<property name="albumId" />
+		<property name="flyleafPrice" column="flyleaf_price" not-null="true"/>
+		<many-to-one name="vellum" column="vellum_id" />
+		<property name="vellumPrice" column="vellum_price" not-null="true"/>
+
+		<list name="layouts" cascade="all-delete-orphan">
+			<key>
+				<column name="order_id" not-null="true" />
+			</key>
+			<list-index column="number" />
+			<many-to-many entity-name="ru.imagebook.shared.model.editor.Layout">
+				<column name="layout_id" not-null="true" />
+			</many-to-many>
+		</list>
+
+		<joined-subclass name="AlbumOrderImpl" proxy="AlbumOrder"
+			table="album_order">
+			<key column="id" />
+		</joined-subclass>
+
+		<joined-subclass name="CalendarOrderImpl" proxy="CalendarOrder"
+			table="calendar_order">
+			<key column="id" />
+		</joined-subclass>
+
+		<filter name="vendorOrders" condition="user in (select u.id from user u where u.vendor_id = :vendorId)" />
+	</class>
+
+	<filter-def name="vendorOrders">
+		<filter-param name="vendorId" type="integer" />
+	</filter-def>
+</hibernate-mapping>

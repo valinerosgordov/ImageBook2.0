@@ -1,0 +1,453 @@
+package ru.imagebook.server.service.pdf;
+
+public interface Imposition {
+    // 010106
+    final int WIDTH_MM_010106 = 320;
+    final int HEIGHT_MM_010106 = 457;
+    final int MARGIN_X_MM_010106 = 9;
+    final int MARGIN_Y_MM_010106 = 21;
+    final int GAB_X_MM_010106 = 0;
+    final int GAB_Y_MM_010106 = 3;
+    final int BLOCK_WIDTH_MM_010106 = 302;
+    final int BLOCK_HEIGHT_MM_010106 = 210;
+    final int MARKER_LENGTH_MM_010106 = 7;
+    final float LINE_WIDTH_MM_010106 = 0.1f;
+    // 010108
+    final int WIDTH_MM_010108 = 320;
+    final int HEIGHT_MM_010108 = 330;
+    final int MARGIN_X_MM_010108 = 9;
+    final int MARGIN_Y_MM_010108 = 15;
+    final int GAB_X_MM_010108 = 0;
+    final int GAB_Y_MM_010108 = 0;
+    final int BLOCK_WIDTH_MM_010108 = 302;
+    final int BLOCK_HEIGHT_MM_010108 = 300;
+    final int MARKER_LENGTH_MM_010108 = 7;
+    final float LINE_WIDTH_MM_010108 = 0.1f;
+    // 010206
+    final int WIDTH_MM_010206 = 320;
+    final int HEIGHT_MM_010206 = 457;
+    final int MARGIN_X_MM_010206 = 9;
+    final int MARGIN_Y_MM_010206 = 21;
+    final int GAB_X_MM_010206 = 0;
+    final int GAB_Y_MM_010206 = 3;
+    final int BLOCK_WIDTH_MM_010206 = 302;
+    final int BLOCK_HEIGHT_MM_010206 = 210;
+    final int MARKER_LENGTH_MM_010206 = 7;
+    final float LINE_WIDTH_MM_010206 = 0.1f;
+    // 010208
+    final int WIDTH_MM_010208 = 320;
+    final int HEIGHT_MM_010208 = 330;
+    final int MARGIN_X_MM_010208 = 9;
+    final int MARGIN_Y_MM_010208 = 15;
+    final int GAB_X_MM_010208 = 0;
+    final int GAB_Y_MM_010208 = 0;
+    final int BLOCK_WIDTH_MM_010208 = 302;
+    final int BLOCK_HEIGHT_MM_010208 = 300;
+    final int MARKER_LENGTH_MM_010208 = 7;
+    final float LINE_WIDTH_MM_010208 = 0.1f;
+    // 010210
+    final int WIDTH_MM_010210 = 320;
+    final int HEIGHT_MM_010210 = 457;
+    final int MARGIN_X_MM_010210 = 9;
+    final int MARGIN_Y_MM_010210 = 13;
+    final int GAB_X_MM_010210 = 0;
+    final int GAB_Y_MM_010210 = 0;
+    final int BLOCK_WIDTH_MM_010210 = 302;
+    final int BLOCK_HEIGHT_MM_010210 = 430;
+    final int MARKER_LENGTH_MM_010210 = 7;
+    final float LINE_WIDTH_MM_010210 = 0.1f;
+    // 010999
+    final int WIDTH_MM_010999 = 450;
+    final int HEIGHT_MM_010999 = 320;
+    final int MARGIN_X_MM_010999 = 15;
+    final int MARGIN_Y_MM_010999 = 13;
+    final int GAB_X_MM_010999 = 5;
+    final int GAB_Y_MM_010999 = 3;
+    final int BLOCK_WIDTH_MM_010999 = 215;
+    final int BLOCK_HEIGHT_MM_010999 = 150;
+    final float LINE_WIDTH_MM_010999 = 0.1f;
+    // 010802
+    final int WIDTH_MM_010802 = 320;
+    final int HEIGHT_MM_010802 = 450;
+    final int MARGIN_X_MM_010802 = 15;
+    final int MARGIN_Y_MM_010802 = 13;
+    final int GAB_X_MM_010802 = 5;
+    final int GAB_Y_MM_010802 = 3;
+    final int BLOCK_WIDTH_MM_010802 = 150;
+    final int BLOCK_HEIGHT_MM_010802 = 215;
+    final float LINE_WIDTH_MM_010802 = 0.1f;
+    // 010803
+    final int WIDTH_MM_010803 = 450;
+    final int HEIGHT_MM_010803 = 320;
+    final int MARGIN_X_MM_010803 = 20;
+    final int MARGIN_Y_MM_010803 = 55;
+    final int GAB_X_MM_010803 = 5;
+    final int GAB_Y_MM_010803 = 0;
+    final int BLOCK_WIDTH_MM_010803 = 210;
+    final int BLOCK_HEIGHT_MM_010803 = 210;
+    final int MARKER_LENGTH_MM_010803 = 7;
+    final float LINE_WIDTH_MM_010803 = 0.1f;
+    // 010805
+    final int WIDTH_MM_010805 = 450;
+    final int HEIGHT_MM_010805 = 320;
+    final int MARGIN_X_MM_010805 = 15;
+    final int MARGIN_Y_MM_010805 = 30;
+    final int GAB_X_MM_010805 = 5;
+    final int GAB_Y_MM_010805 = 0;
+    final int BLOCK_WIDTH_MM_010805 = 210;
+    final int BLOCK_HEIGHT_MM_010805 = 260;
+    final int MARKER_LENGTH_MM_010805 = 7;
+    final float LINE_WIDTH_MM_010805 = 0.1f;
+    // 010701
+    final int WIDTH_MM_010701 = 450;
+    final int HEIGHT_MM_010701 = 320;
+    final int MARGIN_X_MM_010701 = 13;
+    final int MARGIN_Y_MM_010701 = 13;
+    final int GAB_X_MM_010701 = 3;
+    final int GAB_Y_MM_010701 = 3;
+    final int BLOCK_WIDTH_MM_010701 = 215;
+    final int BLOCK_HEIGHT_MM_010701 = 150;
+    final int MARKER_LENGTH_MM_010701 = 7;
+    final float LINE_WIDTH_MM_010701 = 0.1f;
+    // 010807
+    final int WIDTH_MM_010807 = 450;
+    final int HEIGHT_MM_010807 = 320;
+    final int MARGIN_X_MM_010807 = 20;
+    final int MARGIN_Y_MM_010807 = 10;
+    final int GAB_X_MM_010807 = 5;
+    final int GAB_Y_MM_010807 = 0;
+    final int BLOCK_WIDTH_MM_010807 = 210;
+    final int BLOCK_HEIGHT_MM_010807 = 300;
+    final int MARKER_LENGTH_MM_010807 = 7;
+    final float LINE_WIDTH_MM_010807 = 0.1f;
+    // 010702
+    final int WIDTH_MM_010702 = 320;
+    final int HEIGHT_MM_010702 = 450;
+    final int MARGIN_X_MM_010702 = 13;
+    final int MARGIN_Y_MM_010702 = 13;
+    final int GAB_X_MM_010702 = 3;
+    final int GAB_Y_MM_010702 = 3;
+    final int BLOCK_WIDTH_MM_010702 = 150;
+    final int BLOCK_HEIGHT_MM_010702 = 215;
+    final int MARKER_LENGTH_MM_010702 = 7;
+    final float LINE_WIDTH_MM_010702 = 0.1f;
+    // 010703
+    final int WIDTH_MM_010703 = 320;
+    final int HEIGHT_MM_010703 = 450;
+    final int MARGIN_X_MM_010703 = 55;
+    final int MARGIN_Y_MM_010703 = 18;
+    final int GAB_X_MM_010703 = 0;
+    final int GAB_Y_MM_010703 = 3;
+    final int BLOCK_WIDTH_MM_010703 = 210;
+    final int BLOCK_HEIGHT_MM_010703 = 210;
+    final int MARKER_LENGTH_MM_010703 = 7;
+    final float LINE_WIDTH_MM_010703 = 0.1f;
+    // 010704
+    final int WIDTH_MM_010704 = 320;
+    final int HEIGHT_MM_010704 = 450;
+    final int MARGIN_X_MM_010704 = 30;
+    final int MARGIN_Y_MM_010704 = 18;
+    final int GAB_X_MM_010704 = 0;
+    final int GAB_Y_MM_010704 = 3;
+    final int BLOCK_WIDTH_MM_010704 = 260;
+    final int BLOCK_HEIGHT_MM_010704 = 210;
+    final int MARKER_LENGTH_MM_010704 = 7;
+    final float LINE_WIDTH_MM_010704 = 0.1f;
+    // 010705
+    final int WIDTH_MM_010705 = 450;
+    final int HEIGHT_MM_010705 = 320;
+    final int MARGIN_X_MM_010705 = 18;
+    final int MARGIN_Y_MM_010705 = 30;
+    final int GAB_X_MM_010705 = 3;
+    final int GAB_Y_MM_010705 = 0;
+    final int BLOCK_WIDTH_MM_010705 = 210;
+    final int BLOCK_HEIGHT_MM_010705 = 260;
+    final int MARKER_LENGTH_MM_010705 = 7;
+    final float LINE_WIDTH_MM_010705 = 0.1f;
+    // 010706
+    final int WIDTH_MM_010706 = 320;
+    final int HEIGHT_MM_010706 = 450;
+    final int MARGIN_X_MM_010706 = 10;
+    final int MARGIN_Y_MM_010706 = 18;
+    final int GAB_X_MM_010706 = 0;
+    final int GAB_Y_MM_010706 = 3;
+    final int BLOCK_WIDTH_MM_010706 = 300;
+    final int BLOCK_HEIGHT_MM_010706 = 210;
+    final int MARKER_LENGTH_MM_010706 = 7;
+    final float LINE_WIDTH_MM_010706 = 0.1f;
+    // 010707
+    final int WIDTH_MM_010707 = 450;
+    final int HEIGHT_MM_010707 = 320;
+    final int MARGIN_X_MM_010707 = 18;
+    final int MARGIN_Y_MM_010707 = 10;
+    final int GAB_X_MM_010707 = 3;
+    final int GAB_Y_MM_010707 = 0;
+    final int BLOCK_WIDTH_MM_010707 = 210;
+    final int BLOCK_HEIGHT_MM_010707 = 300;
+    final int MARKER_LENGTH_MM_010707 = 7;
+    final float LINE_WIDTH_MM_010707 = 0.1f;
+    // 010708
+    final int WIDTH_MM_010708 = 320;
+    final int HEIGHT_MM_010708 = 450;
+    final int MARGIN_X_MM_010708 = 10;
+    final int MARGIN_Y_MM_010708 = 75;
+    final int GAB_X_MM_010708 = 0;
+    final int GAB_Y_MM_010708 = 0;
+    final int BLOCK_WIDTH_MM_010708 = 300;
+    final int BLOCK_HEIGHT_MM_010708 = 300;
+    final int MARKER_LENGTH_MM_010708 = 7;
+    final float LINE_WIDTH_MM_010708 = 0.1f;
+    // 010709
+    final int WIDTH_MM_010709 = 450;
+    final int HEIGHT_MM_010709 = 320;
+    final int MARGIN_X_MM_010709 = 17;
+    final int MARGIN_Y_MM_010709 = 15;
+    final int GAB_X_MM_010709 = 0;
+    final int GAB_Y_MM_010709 = 0;
+    final int BLOCK_WIDTH_MM_010709 = 415;
+    final int BLOCK_HEIGHT_MM_010709 = 290;
+    final int MARKER_LENGTH_MM_010709 = 7;
+    final float LINE_WIDTH_MM_010709 = 0.1f;
+    // 010710
+    final int WIDTH_MM_010710 = 320;
+    final int HEIGHT_MM_010710 = 450;
+    final int MARGIN_X_MM_010710 = 15;
+    final int MARGIN_Y_MM_010710 = 17;
+    final int GAB_X_MM_010710 = 0;
+    final int GAB_Y_MM_010710 = 0;
+    final int BLOCK_WIDTH_MM_010710 = 290;
+    final int BLOCK_HEIGHT_MM_010710 = 415;
+    final int MARKER_LENGTH_MM_010710 = 7;
+    final float LINE_WIDTH_MM_010710 = 0.1f;
+    // 010401
+    final int WIDTH_MM_010401 = 450;
+    final int HEIGHT_MM_010401 = 320;
+    final int MARGIN_X_MM_010401 = 3;
+    final int MARGIN_Y_MM_010401 = 13;
+    final int GAB_X_MM_010401 = 3;
+    final int GAB_Y_MM_010401 = 3;
+    final int BLOCK_WIDTH_MM_010401 = 225;
+    final int BLOCK_HEIGHT_MM_010401 = 150;
+    final int MARKER_LENGTH_MM_010401 = 7;
+    final float LINE_WIDTH_MM_010401 = 0.1f;
+    // 010402
+    final int WIDTH_MM_010402 = 320;
+    final int HEIGHT_MM_010402 = 450;
+    final int MARGIN_X_MM_010402 = 3;
+    final int MARGIN_Y_MM_010402 = 13;
+    final int GAB_X_MM_010402 = 3;
+    final int GAB_Y_MM_010402 = 3;
+    final int BLOCK_WIDTH_MM_010402 = 160;
+    final int BLOCK_HEIGHT_MM_010402 = 215;
+    final int MARKER_LENGTH_MM_010402 = 7;
+    final float LINE_WIDTH_MM_010402 = 0.1f;
+    // 010403
+    final int WIDTH_MM_010403 = 320;
+    final int HEIGHT_MM_010403 = 450;
+    final int MARGIN_X_MM_010403 = 50;
+    final int MARGIN_Y_MM_010403 = 18;
+    final int GAB_X_MM_010403 = 0;
+    final int GAB_Y_MM_010403 = 3;
+    final int BLOCK_WIDTH_MM_010403 = 220;
+    final int BLOCK_HEIGHT_MM_010403 = 210;
+    final int MARKER_LENGTH_MM_010403 = 7;
+    final float LINE_WIDTH_MM_010403 = 0.1f;
+    // 010405
+    final int WIDTH_MM_010405 = 450;
+    final int HEIGHT_MM_010405 = 320;
+    final int MARGIN_X_MM_010405 = 5;
+    final int MARGIN_Y_MM_010405 = 30;
+    final int GAB_X_MM_010405 = 3;
+    final int GAB_Y_MM_010405 = 0;
+    final int BLOCK_WIDTH_MM_010405 = 220;
+    final int BLOCK_HEIGHT_MM_010405 = 260;
+    final int MARKER_LENGTH_MM_010405 = 7;
+    final float LINE_WIDTH_MM_010405 = 0.1f;
+    // 010406
+    final int WIDTH_MM_010406 = 320;
+    final int HEIGHT_MM_010406 = 450;
+    final int MARGIN_X_MM_010406 = 5;
+    final int MARGIN_Y_MM_010406 = 18;
+    final int GAB_X_MM_010406 = 0;
+    final int GAB_Y_MM_010406 = 3;
+    final int BLOCK_WIDTH_MM_010406 = 310;
+    final int BLOCK_HEIGHT_MM_010406 = 210;
+    final int MARKER_LENGTH_MM_010406 = 7;
+    final float LINE_WIDTH_MM_010406 = 0.1f;
+    // 010407
+    final int WIDTH_MM_010407 = 450;
+    final int HEIGHT_MM_010407 = 320;
+    final int MARGIN_X_MM_010407 = 5;
+    final int MARGIN_Y_MM_010407 = 10;
+    final int GAB_X_MM_010407 = 3;
+    final int GAB_Y_MM_010407 = 0;
+    final int BLOCK_WIDTH_MM_010407 = 220;
+    final int BLOCK_HEIGHT_MM_010407 = 300;
+    final int MARKER_LENGTH_MM_010407 = 7;
+    final float LINE_WIDTH_MM_010407 = 0.1f;
+    // 010408
+    final int WIDTH_MM_010408 = 320;
+    final int HEIGHT_MM_010408 = 450;
+    final int MARGIN_X_MM_010408 = 5;
+    final int MARGIN_Y_MM_010408 = 75;
+    final int GAB_X_MM_010408 = 0;
+    final int GAB_Y_MM_010408 = 0;
+    final int BLOCK_WIDTH_MM_010408 = 310;
+    final int BLOCK_HEIGHT_MM_010408 = 300;
+    final int MARKER_LENGTH_MM_010408 = 7;
+    final float LINE_WIDTH_MM_010408 = 0.1f;
+    // 010409
+    final int WIDTH_MM_010409 = 450;
+    final int HEIGHT_MM_010409 = 320;
+    final int MARGIN_X_MM_010409 = 12;
+    final int MARGIN_Y_MM_010409 = 15;
+    final int GAB_X_MM_010409 = 0;
+    final int GAB_Y_MM_010409 = 0;
+    final int BLOCK_WIDTH_MM_010409 = 425;
+    final int BLOCK_HEIGHT_MM_010409 = 290;
+    final int MARKER_LENGTH_MM_010409 = 7;
+    final float LINE_WIDTH_MM_010409 = 0.1f;
+    // 010404
+    final int WIDTH_MM_010404 = 320;
+    final int HEIGHT_MM_010404 = 450;
+    final int MARGIN_X_MM_010404 = 25;
+    final int MARGIN_Y_MM_010404 = 18;
+    final int GAB_X_MM_010404 = 0;
+    final int GAB_Y_MM_010404 = 3;
+    final int BLOCK_WIDTH_MM_010404 = 270;
+    final int BLOCK_HEIGHT_MM_010404 = 210;
+    final int MARKER_LENGTH_MM_010404 = 7;
+    final float LINE_WIDTH_MM_010404 = 0.1f;
+    // 010501
+    final int WIDTH_MM_010501 = 450;
+    final int HEIGHT_MM_010501 = 320;
+    final int MARGIN_X_MM_010501 = 3;
+    final int MARGIN_Y_MM_010501 = 13;
+    final int GAB_X_MM_010501 = 3;
+    final int GAB_Y_MM_010501 = 3;
+    final int BLOCK_WIDTH_MM_010501 = 225;
+    final int BLOCK_HEIGHT_MM_010501 = 150;
+    final int MARKER_LENGTH_MM_010501 = 7;
+    final float LINE_WIDTH_MM_010501 = 0.1f;
+    // 010502
+    final int WIDTH_MM_010502 = 320;
+    final int HEIGHT_MM_010502 = 450;
+    final int MARGIN_X_MM_010502 = 3;
+    final int MARGIN_Y_MM_010502 = 13;
+    final int GAB_X_MM_010502 = 3;
+    final int GAB_Y_MM_010502 = 3;
+    final int BLOCK_WIDTH_MM_010502 = 160;
+    final int BLOCK_HEIGHT_MM_010502 = 215;
+    final int MARKER_LENGTH_MM_010502 = 7;
+    final float LINE_WIDTH_MM_010502 = 0.1f;
+    // 010503
+    final int WIDTH_MM_010503 = 320;
+    final int HEIGHT_MM_010503 = 450;
+    final int MARGIN_X_MM_010503 = 50;
+    final int MARGIN_Y_MM_010503 = 18;
+    final int GAB_X_MM_010503 = 0;
+    final int GAB_Y_MM_010503 = 3;
+    final int BLOCK_WIDTH_MM_010503 = 220;
+    final int BLOCK_HEIGHT_MM_010503 = 210;
+    final int MARKER_LENGTH_MM_010503 = 7;
+    final float LINE_WIDTH_MM_010503 = 0.1f;
+    // 010504
+    final int WIDTH_MM_010504 = 320;
+    final int HEIGHT_MM_010504 = 450;
+    final int MARGIN_X_MM_010504 = 25;
+    final int MARGIN_Y_MM_010504 = 18;
+    final int GAB_X_MM_010504 = 0;
+    final int GAB_Y_MM_010504 = 3;
+    final int BLOCK_WIDTH_MM_010504 = 270;
+    final int BLOCK_HEIGHT_MM_010504 = 210;
+    final int MARKER_LENGTH_MM_010504 = 7;
+    final float LINE_WIDTH_MM_010504 = 0.1f;
+    // 010505
+    final int WIDTH_MM_010505 = 450;
+    final int HEIGHT_MM_010505 = 320;
+    final int MARGIN_X_MM_010505 = 5;
+    final int MARGIN_Y_MM_010505 = 30;
+    final int GAB_X_MM_010505 = 3;
+    final int GAB_Y_MM_010505 = 0;
+    final int BLOCK_WIDTH_MM_010505 = 220;
+    final int BLOCK_HEIGHT_MM_010505 = 260;
+    final int MARKER_LENGTH_MM_010505 = 7;
+    final float LINE_WIDTH_MM_010505 = 0.1f;
+    // 010506
+    final int WIDTH_MM_010506 = 320;
+    final int HEIGHT_MM_010506 = 450;
+    final int MARGIN_X_MM_010506 = 5;
+    final int MARGIN_Y_MM_010506 = 18;
+    final int GAB_X_MM_010506 = 0;
+    final int GAB_Y_MM_010506 = 3;
+    final int BLOCK_WIDTH_MM_010506 = 310;
+    final int BLOCK_HEIGHT_MM_010506 = 210;
+    final int MARKER_LENGTH_MM_010506 = 7;
+    final float LINE_WIDTH_MM_010506 = 0.1f;
+    // 010507
+    final int WIDTH_MM_010507 = 450;
+    final int HEIGHT_MM_010507 = 320;
+    final int MARGIN_X_MM_010507 = 5;
+    final int MARGIN_Y_MM_010507 = 10;
+    final int GAB_X_MM_010507 = 3;
+    final int GAB_Y_MM_010507 = 0;
+    final int BLOCK_WIDTH_MM_010507 = 220;
+    final int BLOCK_HEIGHT_MM_010507 = 300;
+    final int MARKER_LENGTH_MM_010507 = 7;
+    final float LINE_WIDTH_MM_010507 = 0.1f;
+    // 010508
+    final int WIDTH_MM_010508 = 320;
+    final int HEIGHT_MM_010508 = 450;
+    final int MARGIN_X_MM_010508 = 5;
+    final int MARGIN_Y_MM_010508 = 75;
+    final int GAB_X_MM_010508 = 0;
+    final int GAB_Y_MM_010508 = 0;
+    final int BLOCK_WIDTH_MM_010508 = 310;
+    final int BLOCK_HEIGHT_MM_010508 = 300;
+    final int MARKER_LENGTH_MM_010508 = 7;
+    final float LINE_WIDTH_MM_010508 = 0.1f;
+    // 010509
+    final int WIDTH_MM_010509 = 450;
+    final int HEIGHT_MM_010509 = 320;
+    final int MARGIN_X_MM_010509 = 12;
+    final int MARGIN_Y_MM_010509 = 15;
+    final int GAB_X_MM_010509 = 0;
+    final int GAB_Y_MM_010509 = 0;
+    final int BLOCK_WIDTH_MM_010509 = 425;
+    final int BLOCK_HEIGHT_MM_010509 = 290;
+    final int MARKER_LENGTH_MM_010509 = 7;
+    final float LINE_WIDTH_MM_010509 = 0.1f;
+    // 010510
+    final int WIDTH_MM_010510 = 320;
+    final int HEIGHT_MM_010510 = 450;
+    final int MARGIN_X_MM_010510 = 10;
+    final int MARGIN_Y_MM_010510 = 17;
+    final int GAB_X_MM_010510 = 0;
+    final int GAB_Y_MM_010510 = 0;
+    final int BLOCK_WIDTH_MM_010510 = 300;
+    final int BLOCK_HEIGHT_MM_010510 = 415;
+    final int MARKER_LENGTH_MM_010510 = 7;
+    final float LINE_WIDTH_MM_010510 = 0.1f;
+    // 011103
+    final int WIDTH_MM_011103 = 320;
+    final int HEIGHT_MM_011103 = 450;
+    final int MARGIN_X_MM_011103 = 5;
+    final int MARGIN_Y_MM_011103 = 18;
+    final int GAB_X_MM_011103 = 0;
+    final int GAB_Y_MM_011103 = 3;
+    final int BLOCK_WIDTH_MM_011103 = 200;
+    final int BLOCK_HEIGHT_MM_011103 = 190;
+    final int MARKER_LENGTH_MM_011103 = 7;
+    final float LINE_WIDTH_MM_011103 = 0.1f;
+    // 011104
+    final int WIDTH_MM_011104 = 320;
+    final int HEIGHT_MM_011104 = 450;
+    final int MARGIN_X_MM_011104 = 5;
+    final int MARGIN_Y_MM_011104 = 18;
+    final int GAB_X_MM_011104 = 0;
+    final int GAB_Y_MM_011104 = 3;
+    final int BLOCK_WIDTH_MM_011104 = 220;
+    final int BLOCK_HEIGHT_MM_011104 = 210;
+    final int MARKER_LENGTH_MM_011104 = 7;
+    final float LINE_WIDTH_MM_011104 = 0.1f;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:u='urn:import:ru.imagebook.client.app.view.personal.user'
+             xmlns:e='urn:import:ru.imagebook.client.app.view.personal.email'
+             xmlns:p='urn:import:ru.imagebook.client.app.view.personal.phone'
+             xmlns:a='urn:import:ru.imagebook.client.app.view.personal.address'
+             xmlns:pp='urn:import:ru.imagebook.client.app.view.personal.password'>
+
+    <g:HTMLPanel tag="div" styleName="row">
+        <div class="col-xs-12">
+            <div class="personal-container">
+                <h4>Личные данные</h4>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <u:UserNameForm ui:field="userNameForm"/>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">E-mail адреса</div>
+                    <e:EmailsTable ui:field="emailsTable" />
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Телефоны</div>
+                    <p:PhonesTable ui:field="phonesTable" />
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Адреса доставки</div>
+                    <a:AddressesTable ui:field="addressesTable" />
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Смена пароля</div>
+                    <div class="panel-body">
+                        <pp:ChangePasswordForm ui:field="changePasswordForm"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

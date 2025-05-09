@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="Request" table="request">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="number" not-null="true" />
+		<property name="urgent" not-null="true" />		
+		<property name="date" not-null="true" />		
+		<property name="state" not-null="true" />
+		<property name="paid" not-null="true" />
+		<property name="confirmed" not-null="true" />
+		<property name="total" not-null="true" />
+		<property name="total2" not-null="true" />
+		<property name="billNumber" column="bill_number" />
+		<property name="billDate" column="bill_date" />
+		<set name="orders" inverse="true">
+			<key column="request_id" />
+			<one-to-many class="OrderImpl" />
+		</set>
+	</class>
+</hibernate-mapping>

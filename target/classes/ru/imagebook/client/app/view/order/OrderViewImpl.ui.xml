@@ -1,0 +1,51 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.order'>
+
+    <g:HTMLPanel tag="div" styleName="row">
+        <div class="col-xs-12">
+            <h4>Мои альбомы</h4>
+<!--            <div>-->
+<!--                <g:Button ui:field="createAlbumButton" styleName="btn btn-success btn-sm">Создать календарь</g:Button>-->
+<!--            </div>-->
+
+<!--            <br/>-->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Новые заказы
+                    <g:Button ui:field="orderSelectedOrdersButton" visible="false" styleName="btn btn-success btn-sm">Заказать</g:Button>
+                    <g:Button ui:field="deleteSelectedOrdersButton" visible="false" styleName="btn btn-danger btn-sm">Удалить</g:Button>
+                    </h3>
+                </div>
+                <g:HTMLPanel tag="div" ui:field="incomingOrdersPanelBody" styleName="panel-body" />
+                <div class="table-responsive">
+                    <g:FlexTable ui:field="incomingOrdersTable" styleName="table table-bordered" visible="false" />
+                </div>
+            </div>
+
+            <hr />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Корзина
+                    <g:Button ui:field="deleteBasketSelectedOrdersButton" visible="false" styleName="btn btn-danger btn-sm">Удалить из корзины</g:Button>
+                    </h3>
+                </div>
+                <g:HTMLPanel tag="div" ui:field="basketOrdersPanelBody" styleName="panel-body" />
+                <div class="table-responsive">
+                    <g:FlexTable ui:field="basketOrdersTable" styleName="table table-bordered" visible="false" />
+                </div>
+            </div>
+
+            <p>
+                <g:Button ui:field="submitOrderButton" styleName="btn btn-primary btn-lg" enabled="false">Оформить заказ</g:Button>
+            </p>
+
+            <im:OrderEditModalForm ui:field="orderEditModalForm" />
+            <im:OrderBonusCodeModalForm ui:field="orderBonusCodeModalForm" />
+            <im:OrderSelectedOrdersModalForm ui:field="orderSelectedOrdersModalForm"/>
+            <im:CreateAlbumForm ui:field="createAlbumForm" />
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

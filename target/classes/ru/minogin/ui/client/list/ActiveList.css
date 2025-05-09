@@ -1,0 +1,63 @@
+.itemsPanel {
+	display: table;
+	cursor: pointer;
+}
+
+.listItem {
+	padding: 3px;
+	display: table-row;
+}
+
+.listItem>div,.listItem>span {
+	padding: 3px;
+	display: table-cell;
+}
+
+.headerPanel {
+	padding: 3px;
+	display: table-row;
+}
+
+.headerPanel>div,.headerPanel>span {
+	font-weight: bold;
+	padding: 3px 3px 3px 8px;
+	display: table-cell;
+	border-bottom: 1px solid lightgray;
+}
+
+@external .itemPanelHover*, .itemPanelSelected*;
+.itemPanelHover0 {
+	background-color: #eeeeee;
+}
+
+.itemPanelHover1 {
+	background-color: #cccccc;
+}
+
+.itemPanelHover2 {
+	background-color: #aaaaaa;
+}
+
+.mayDropTop>div {
+	border-top: 1px dashed blue;
+}
+
+.mayDropBottom>div {
+	border-bottom: 1px dashed blue;
+}
+
+.itemPanelSelected0 {
+	background-color: #c4e3ff;
+}
+
+.itemPanelSelected1 {
+	background-color: #8dc9ff;
+}
+
+@external .itemPanelSelected2 {
+	background-color: #55aeff;
+}
+.emptyText {
+	font-style: italic;
+	color: gray;
+}

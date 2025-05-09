@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+    <class name="Bill" table="bill">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="user" not-null="true"/>
+        <property name="date" not-null="true"/>
+        <property name="state" not-null="true"/>
+        <set name="orders" sort="natural" inverse="true">
+            <key column="bill_id"/>
+            <one-to-many class="OrderImpl"/>
+        </set>
+        <property name="adv" not-null="true"/>
+        <property name="weight"/>
+        <property name="deliveryType"/>
+        <property name="deliveryCost" column="deliveryCost" not-null="true"/>
+        <property name="deliveryDiscountPc" column="delivery_discount_pc"/>
+        <property name="regLetter" not-null="true"/>
+        <property name="importId"/>
+        <property name="payDate" column="pay_date"/>
+        <property name="discountPc" not-null="true"/>
+        <property name="multishipOrderId"/>
+        <property name="multishipType" />
+        <property name="mshDeliveryService"/>
+        <property name="orientDeliveryDate"/>
+        <property name="deliveryTime"/>
+        <property name="dsSendState" column="ds_send_state"/>
+        <property name="dsErrorMessage" column="ds_error_message"/>
+        <property name="sendingId" column="sending_id"/>
+        <property name="dsSendingId" column="ds_sending_id"/>
+        <property name="pickpointPostamateID" column="pickpoint_postamate_id"/>
+        <property name="pickpointRateZone" column="pickpoint_rate_zone"/>
+        <property name="pickpointTrunkCoeff" column="pickpoint_trunk_coeff"/>
+        <property name="pickpointAddress" column="pickpoint_address"/>
+        <property name="ddeliveryType" column="ddelivery_type"/>
+        <property name="ddeliveryCityId" column="ddelivery_city_id"/>
+        <property name="ddeliveryCompanyId" column="ddelivery_company_id"/>
+        <property name="ddeliveryCompanyName" column="ddelivery_company_name"/>
+        <property name="ddeliveryPickupPointId" column="ddelivery_pickup_point_id"/>
+        <property name="ddeliveryPickupPointAddress" column="ddelivery_pickup_point_address"/>
+        <property name="pickupSendStateDate" column="pickup_send_state_date"/>
+        <property name="notifyPickup" column="notify_pickup" not-null="true"/>
+        <property name="sdekDeliveryType" column="sdek_delivery_type"/>
+        <property name="sdekPickupPointId" column="sdek_pickup_point_id"/>
+        <property name="sdekCityId" column="sdek_city_id"/>
+        <property name="sdekPickupPointAddress" column="sdek_pickup_point_address"/>
+        <property name="sdekTarifCode" column="sdek_tarif_code"/>
+
+
+        <filter name="vendorBills"
+                condition="user in (select u.id from user u where u.vendor_id = :vendorId)"/>
+    </class>
+
+    <filter-def name="vendorBills">
+        <filter-param name="vendorId" type="integer"/>
+    </filter-def>
+</hibernate-mapping>

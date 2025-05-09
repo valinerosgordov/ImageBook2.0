@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="vendorMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="localhost" />
+    </bean>
+
+    <bean id="imagebookMailSender" parent="vendorMailSender">
+        <property name="host" value="${imagebook.smtp.host}" />
+        <property name="port" value="${imagebook.smtp.port}" />
+        <property name="username" value="${imagebook.smtp.user}" />
+        <property name="password" value="${imagebook.smtp.password}" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="javaMailProperties" ref="javaMailProperties${imagebook.smtp.security}" />
+    </bean>
+
+    <util:properties id="javaMailProperties">
+    </util:properties>
+
+    <util:properties id="javaMailPropertiesTLS">
+        <prop key="mail.smtp.auth">true</prop>
+        <prop key="mail.smtp.starttls.enable">true</prop>
+        <prop key="mail.smtps.ssl.checkserveridentity">true</prop>
+        <prop key="mail.smtps.ssl.trust">*</prop>
+    </util:properties>
+
+    <util:properties id="javaMailPropertiesSSL">
+        <prop key="mail.smtp.auth">true</prop>
+        <prop key="mail.smtp.socketFactory.port">${imagebook.smtp.port}</prop>
+        <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+    </util:properties>
+</beans>

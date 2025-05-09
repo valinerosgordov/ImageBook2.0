@@ -1,0 +1,88 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel tag="div" styleName="row">
+        <g:HTMLPanel ui:field="paymentMethodsPanel" tag="div" styleName="col-xs-12 col-lg-8">
+            <h4>Способы оплаты</h4>
+
+            <div class="list-group">
+                <g:Anchor ui:field="roboMethodAnchor" href="javascript:;" styleName="list-group-item" visible="false">
+                    <h4 class="list-group-item-heading">Оплата Яндекс.Деньгами, банковской картой, Webmoney, через терминалы, с помощью SMS и другими способами</h4>
+                    <p class="list-group-item-text">
+                        Вы можете оплатить товар любой электронной валютой, воспользовавшись сервисом ROBOKASSA.<br/>
+                        ROBOKASSA — проект сервиса ROBOXchange.com, мирового лидера в сфере онлайнового обмена и
+                        эквайринга электронных валют.<br/>
+                        ROBOKASSA — это сервис, позволяющий оплачивать товар:<br/>
+                        - в любой электронной валюте<br/>
+                        - с помощью банковской карты<br/>
+                        - с помощью sms-сообщений<br/>
+                        - через систему денежных переводов Contact<br/>
+                        - через терминалы мгновенной оплаты<br/>
+                        и другими способами.
+                    </p>
+                </g:Anchor>
+
+                <g:Anchor ui:field="yandexKassaMethodAnchor" href="javascript:;" styleName="list-group-item" visible="false">
+                    <h4 class="list-group-item-heading">Яндекс.Касса</h4>
+                    <p class="list-group-item-text">
+                        Платежный сервис № 1 в России (<a href="https://money.yandex.ru/doc.xml?id=527664">по данным MARC</a>)<br/>
+                        Яндекс.Касса — универсальный платёжный инструмент, с помощью которого можно оплачивать товар:<br/>
+                        - с банковских карт Visa, MasterCard и Maestro,<br/>
+                        - наличными (через терминалы и салоны связи),<br/>
+                        - электронными деньгами (Яндекс.Деньги, Qiwi и WebMoney),<br/>
+                        - со счёта мобильного,<br/>
+                        - через интернет-банк (Сбербанк Онлайн, Альфа-Клик, интернет-банк Промсвязьбанка, MasterPass)<br/>
+                          и с помощью займа (сервисы КупиВкредит и Куппи.ру).
+                    </p>
+                </g:Anchor>
+
+                <g:Anchor ui:field="receiptMethodAnchor" href="javascript:;" styleName="list-group-item" visible="false">
+                    <h4 class="list-group-item-heading">Оплата наличными через Сбербанк</h4>
+                    <p class="list-group-item-text">
+                        Перевод через Сбербанк: мы предлагаем Вам безналичную форму оплаты через Сбербанк или любой другой
+                        банк, предоставляющий такую услугу. После оформления заказа распечатайте квитанцию. Затем в
+                        ближайшем отделении Сбербанка заполните аналогичным образом квитанцию (форма N ПД-4) и оплатите ее.
+                        Отгрузка товара осуществляется по факту прихода денег на наш счет.
+                        Наш менеджер свяжется с Вами после оплаты Вами заказа.
+                    </p>
+                </g:Anchor>
+            </div>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel ui:field="receiptMethodForm" tag="div" styleName="col-md-6 col-lg-4" visible="false">
+            <h4>Квитанция для оплаты через Сбербанк</h4>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="" class="col-md-4 col-lg-4 control-label">Ф.И.О. плательщика</label>
+                            <div class="col-md-8 col-lg-8">
+                                <g:TextBox ui:field="nameField" styleName="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-4 col-lg-4 control-label">Адрес плательщика</label>
+                            <div class="col-md-8 col-lg-8">
+                                <g:TextBox ui:field="addressField" styleName="form-control"/>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p>Сформировать квитанцию:</p>
+                    <ul>
+                        <li><g:Anchor ui:field="receiptPdfAnchor" href="javascript:;">в формате PDF</g:Anchor></li>
+                        <li><g:Anchor ui:field="receiptMsWordAnchor" href="javascript:;">в формате MS Word</g:Anchor></li>
+                    </ul>
+                </div>
+            </div>
+        </g:HTMLPanel>
+
+        <div class="col-xs-12">
+            <g:Anchor ui:field="unblockPopupsHelpAnchor" href="javascript:;">
+                Что делать, если при нажатии на ссылку ничего не происходит?
+            </g:Anchor>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

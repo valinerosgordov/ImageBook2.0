@@ -1,0 +1,72 @@
+.spread-drag-over {
+	border: solid 1px green !important;
+}
+
+.page-number {
+	color: grey;
+	font-family: arial;
+	font-size: 12px;
+}
+
+.editor-preview-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.preview-over {
+	border: solid 1px grey !important;
+}
+
+.preview-out {
+	border: solid 1px white !important;
+}
+
+.editor-preview-wrap {
+	text-align: center;
+}
+
+.editor-preview {
+	text-align: center;
+	margin-top: 5px;
+}
+
+.editor-preview img {
+	border: solid 1px grey !important;
+	width: 100px;
+}
+
+.editor-preview-name {
+	color: grey;
+	font-family: arial;
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.editor-spread-container {
+	cursor: pointer;
+}
+
+.editor-spread-container:hover {
+	background: #c4d9f3;
+}
+
+.editor-spread-container-selected {
+	background: #b7cce4 !important;
+}
+
+.editor-banner-html {
+	color: white;
+	padding-right: 9px;
+	float: right;
+}
+
+.editor-banner-html a {
+  	color: #a1f2ff !important;
+  	text-decoration: none;
+}
+
+.editor-banner-html a:hover {
+	text-decoration: underline;
+}

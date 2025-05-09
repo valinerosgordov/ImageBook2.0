@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model.site">
+	<class name="DirSection1" table="site_dir_section_1">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="index" column="`index`" />
+		<property name="key" column="`key`" unique="true" />
+		<property name="name" />
+		<set name="sections" sort="natural" inverse="true">
+			<key column="section_id" />
+			<one-to-many class="DirSection2" />
+		</set>
+	</class>
+</hibernate-mapping>

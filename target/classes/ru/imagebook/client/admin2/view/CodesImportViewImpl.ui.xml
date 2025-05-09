@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	xmlns:f="urn:import:ru.minogin.ui.client.field"
+	xmlns:u="urn:import:ru.minogin.ui.client.field.upload">
+	
+	<g:HTMLPanel>
+		<h2>Загрузка кодов отправления</h2>
+		
+		<p><u:ActiveFileUpload ui:field="uploadField" width="400px" text="Перетащите Excel-файл сюда" /></p>
+		
+  		<g:Label ui:field="infoLabel" />
+  		<g:Label ui:field="errorLabel" styleName="error" />
+	</g:HTMLPanel>
+</ui:UiBinder>

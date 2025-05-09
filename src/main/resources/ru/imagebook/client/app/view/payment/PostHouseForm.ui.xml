@@ -1,0 +1,118 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	         xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <g:FlowPanel>
+        <g:HTMLPanel tag="div" styleName="panel panel-default">
+            <div class="panel-heading">Кому</div>
+            <div class="panel-body">
+                <g:HTMLPanel tag="form" styleName="form-horizontal">
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Фамилия</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="lastnameField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Имя</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="nameField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Отчество</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="surnameField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Телефон</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon">+</span>
+                                <im:XTextBox ui:field="phoneCountryCodeField" styleName="form-control" width="15%" />
+                                <im:MaskedTextBox ui:field="phoneField" name="phone"
+                                                  styleName="form-control no-left-border"
+                                                  width="85%" dataInputMask="999-9999999" placeholder="926-1112233"/>
+                            </div>
+                            <span class="help-block">в формате [+7] [926-1112233]</span>
+                        </div>
+                    </div>
+                </g:HTMLPanel>
+            </div>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel tag="div" styleName="panel panel-default">
+            <div class="panel-heading">Куда</div>
+            <div class="panel-body">
+                <g:HTMLPanel tag="form" styleName="form-horizontal">
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Страна</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="countryField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Индекс</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="zipCodeField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Регион / область</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="regionField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="" class="col-sm-3 control-label">Город</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="cityField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Улица</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="streetField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Номер дома</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="houseField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Строение / корпус</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="buildingField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Квартира / офис</label>
+                        <div class="col-sm-9">
+                            <g:TextBox ui:field="officeField" styleName="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Комментарий</label>
+                        <div class="col-sm-9">
+                            <g:TextArea ui:field="commentField" styleName="form-control" visibleLines="3"/>
+                        </div>
+                    </div>
+                </g:HTMLPanel>
+            </div>
+        </g:HTMLPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

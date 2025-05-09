@@ -1,0 +1,102 @@
+.desktop-logo {
+	cursor: pointer;
+}
+
+.calc-panel {
+	margin: 10px;
+}
+
+.calc-title {
+	font-size: 26px;
+	margin-top: 15px;
+}
+
+.calc-calc {
+	font-size: 20px;
+}
+
+.row1-panel {
+	margin-top: 20px;
+}
+
+.field-title {
+	font-weight: bold;
+}
+
+.product-panel {
+}
+
+.other-panel {
+	margin-top: 20px;
+}
+
+.price-panel {
+	margin-top: 20px;
+	background-color: #d9f4ff;
+}
+
+.price-panel-web {
+	background-color: #d9f4ff;
+}
+
+.price-table {
+	margin-top: 20px;
+}
+
+.price-table td {
+	font-size: 16px;
+}
+
+.quantity-panel {
+	margin-top: 20px; 
+}
+
+.quantity-field {
+}
+
+.level-panel {
+	margin-top: 20px; 
+}
+
+.total-title {
+	font-weight: bold;
+}
+
+.total-html {
+	font-weight: bold;
+}
+
+.other-title {
+	width: 200px; 
+}
+
+.product-html {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 3px; 
+}
+
+.format-html {
+	font-size: 14px;
+	margin-left: 3px; 
+}
+
+.color-panel {
+	margin-top: 10px; 
+}
+
+.cover-lam-panel {
+	margin-top: 10px; 
+}
+
+.page-lam-panel {
+	margin-top: 10px; 
+}
+
+.quantity-panel {
+	margin-top: 10px; 
+}
+
+.info-html {
+	margin-top: 20px;
+}

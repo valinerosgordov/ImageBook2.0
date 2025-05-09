@@ -1,0 +1,51 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+			 xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel ui:field="pickpointWidgetPanel" visible="false">
+		<g:Label text="Где будете забирать" styleName="block-title-label"/>
+		<div>
+			<table width="100%">
+				<colgroup>
+					<col width="150px"/>
+				</colgroup>
+				<tr>
+					<td>Постамат: *</td>
+					<td>
+						<g:TextBox ui:field="pickpointAddressField" styleName="pickpointAddress form-control" readOnly="true"/>
+
+						<g:TextBox ui:field="pickpointPostamateId" styleName="hidden pickpointPostamateId"/>
+<!--						<g:TextBox ui:field="pickpointRateZone" styleName="hidden pickpointRateZone"/>-->
+<!--						<g:TextBox ui:field="pickpointCoeff" styleName="hidden pickpointCoeff"/>-->
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:;" onclick="IMAGEBOOK.pickPoint.showPickpointWizard();" class="action">
+							Выбрать постамат
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<g:VerticalPanel ui:field="pickpointCostAndTimeFieldPanel" visible="false" styleName="pickpointCostAndTime">
+							<g:HorizontalPanel verticalAlignment="top">
+								<g:Label text="Стоимость доставки:&#160;"/>
+								<g:HTMLPanel>
+									<span ui:field="pickpointCostField"/>
+									<br/>
+								</g:HTMLPanel>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel verticalAlignment="top">
+								<g:Label text="Срок:&#160;"/>
+								<g:HTMLPanel>
+									<span ui:field="pickpointTimeField"/>
+								</g:HTMLPanel>
+							</g:HorizontalPanel>
+						</g:VerticalPanel>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br/>
+	</g:HTMLPanel>
+</ui:UiBinder>

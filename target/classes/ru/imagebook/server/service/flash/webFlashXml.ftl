@@ -1,0 +1,19 @@
+<content
+	width="${width?c}"
+	height="${height?c}"
+	hcover="${hardCover}"
+	transparency="true"
+	bgColor="0xF0F0F0"
+	newSpeed="0"
+	tit="${title}"
+	fsize="${fsize?c}"
+	fcolor="0x999999"
+	ffamily="Arial"
+>
+	<#list pages as page>
+		<page
+			src="${webPrefix}/webImage?a=${sessionId}&b=${page.type?c}&d=${page.number?c}"
+			preLoad="true"
+		/>
+	</#list>
+</content>

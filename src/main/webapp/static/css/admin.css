@@ -1,0 +1,19 @@
+.red-row {
+	background-color: #ffcccc !important;
+}
+
+.green-row {
+	background-color: #ccffcc !important;
+}
+
+.x-grid3-highlightrow {
+	color: black;
+}
+
+.x-grid3-row-selected {
+	color: black;
+}
+
+.x-grid3-row-over {
+	color: black;
+}

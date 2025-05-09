@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <g:HTMLPanel tag="div" styleName="row">
+        <div class="col-xs-12">
+            <h4>Запрос в службу поддержки</h4>
+
+            <div class="panel panel-default support-container">
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group required">
+                            <label for="" class="col-sm-2 control-label">Тема</label>
+                            <div class="col-sm-10">
+                                <im:XTextBox ui:field="subjectField" styleName="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="" class="col-sm-2 control-label">Текст</label>
+                            <div class="col-sm-10">
+                                <im:XTextArea ui:field="textField" styleName="form-control" visibleLines="10"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <g:Button ui:field="sendButton" styleName="btn btn-primary">Отправить запрос</g:Button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <g:Label ui:field="formIncompleteLabel" styleName="error"
+                                     text="Пожалуйста, заполните поля, отмеченные звездочками" visible="false"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

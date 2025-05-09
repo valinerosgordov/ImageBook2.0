@@ -1,0 +1,54 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel styleName="main">
+        <g:HTMLPanel styleName="form">
+            <h1><span ui:field="serviceNameField"/></h1>
+            <h2>Регистрация в личном кабинете</h2>
+            <table class="register-table">
+                <tr>
+                    <td colspan="2" class="register-text">
+                        Пожалуйста, укажите ваш e-mail и пароль.
+                        <p>E-mail нужен для оформления доставки и оплаты заказа.
+                        В личном кабинете вы всегда сможете посмотреть состояние своего заказа и показать альбом друзьям.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120px">E-mail:</td>
+                    <td><g:TextBox ui:field="regEmailField"/></td>
+                </tr>
+                <tr>
+                    <td>Пароль:</td>
+                    <td><g:PasswordTextBox ui:field="regPasswordField" /></td>
+                </tr>
+                <tr>
+                    <td>Введите код с картинки:</td>
+                    <td><g:TextBox ui:field="captchaField"/></td>
+                </tr>
+                <tr>
+                    <td/>
+                    <td><img src="/SimpleCaptcha.jpg"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="blockquote">
+                            Нажимая кнопку "Зарегистрироваться / войти" Вы подтверждаете, что ознакомились и согласны с <a href="http://imagebook.ru/var/files/doc/offer.pdf" target="_blank">публичной офертой</a>
+                            и <a href="http://imagebook.ru/soglashenie" target="_blank">соглашением об обработке персональных данных.</a>
+                        </div>
+                        <g:Button text="Зарегистрироваться / войти" ui:field="registerButton" styleName="form-submit" />
+                        <br />
+                        <g:Label ui:field="regErrorLabel" styleName="error" visible="false" />
+                        <div ui:field="regInProgressHolder" style="display: none">
+                            <g:Label ui:field="regInProgressLabel" text="Выполняется вход..." styleName="register-in-progress-label"/>
+                            <div class="register-in-progress-loader">
+                                <g:Image ui:field="ajaxLoader" url="/static/images/ajax-loader.gif" />
+                            </div>
+                            <div class="clear"/>
+                        </div>
+                        <br />
+                        <g:Anchor href="/app/recoverPassword" ui:field="forgotPasswordAnchor" text="Забыли пароль?" styleName="forgot-password" visible="false"/>
+                    </td>
+                </tr>
+            </table>
+        </g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

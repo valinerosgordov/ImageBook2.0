@@ -1,0 +1,8 @@
+<div class="i-global-notification">
+    <div ng-repeat="message in messages" class="alert alert-{{message.type}} alert-dismissible" role="alert">
+        <button type="button" ng-click="close(message)" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <span ng-bind="message.text"></span>
+    </div>
+</div>

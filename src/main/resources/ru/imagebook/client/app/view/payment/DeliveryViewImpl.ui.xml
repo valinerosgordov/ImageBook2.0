@@ -1,0 +1,77 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:FlowPanel styleName="delivery-container">
+        <g:HTMLPanel tag="div" styleName="row">
+            <div class="col-xs-12">
+                <g:HTMLPanel ui:field="bannerPanel" tag="div" styleName="alert alert-info banner" visible="false">
+                    <g:HTML ui:field="bannerHtml"/>
+                </g:HTMLPanel>
+                <h4>Информация для доставки заказа</h4>
+
+                <strong>Выберите способ доставки</strong>
+                
+                <p>
+                    Обратите внимание: сроки доставки указываются без учета времени изготовления заказа (2-6 рабочих дней в зависимости от сложности и тиража). День передачи посылки в службу доставки не входит в срок доставки.
+                    Компания Имиджбук оставляет за собой право изменить службу доставки на аналогичную или лучше без доплаты со стороны заказчика.
+
+                </p>
+
+                <g:HTMLPanel ui:field="deliveryMethodsPanel" visible="false">
+                    <g:HTMLPanel ui:field="deliveryFieldsRadioGroup" styleName="deliveryFieldsRadioGroup" />
+                </g:HTMLPanel>
+            </div>
+        </g:HTMLPanel>
+
+        <g:HTMLPanel tag="div" styleName="row">
+            <div class="col-xs-12">
+                <g:HTMLPanel tag="div" ui:field="majorCityFieldPanel" visible="false">
+                    <g:HTMLPanel tag="form" styleName="form-inline">
+                        <div class="form-group">
+                            <label for="" class="control-label">Укажите город для доставки заказа:</label>
+                            <g:SuggestBox ui:field="majorCityField" styleName="form-control" />
+                        </div>
+                    </g:HTMLPanel>
+
+                    <g:HTMLPanel ui:field="majorCostAndTimeFieldPanel" visible="false">
+                        <label for="">Стоимость и сроки:</label>
+                        <p ui:field="majorCostAndTimeField" />
+                        <br />
+                    </g:HTMLPanel>
+                </g:HTMLPanel>
+
+                <g:SimplePanel ui:field="deliveryMethodErrorsContainer" styleName="error" visible="false" />
+
+                <g:SimplePanel ui:field="pickpointWidgetContainer"/>
+
+                <g:SimplePanel ui:field="sdekWidgetContainer"/>
+
+                <g:HTMLPanel ui:field="deliveryFieldsPanel" visible="false">
+                    <g:Label ui:field="deliveryFieldsLabel" text="Выберите адрес для доставки заказа или укажите новый адрес:"
+                             styleName="block-title-label" />
+                    <g:HTMLPanel ui:field="deliveryAddressPanel" styleName="deliveryFieldsRadioGroup" />
+                    <g:SimplePanel ui:field="deliveryFormPanel" styleName="deliveryFieldsPanel" />
+                </g:HTMLPanel>
+
+                <g:Label ui:field="formIncompleteLabel" styleName="error"
+                         text="Пожалуйста, заполните поля, отмеченные звездочками" visible="false"/>
+
+                <g:SimplePanel ui:field="formErrorsContainer" styleName="error" visible="false" />
+
+                <g:HTMLPanel ui:field="payButtonPanel" tag="div" visible="false">
+                    <div class="blockquote">
+                        Нажимая кнопку "Перейти к оплате" Вы подтверждаете, что ознакомились и согласны с <a href="http://imagebook.ru/var/files/doc/offer.pdf" target="_blank">публичной офертой</a>
+                        и <a href="http://imagebook.ru/soglashenie" target="_blank">соглашением об обработке персональных данных.</a>
+                    </div>
+                    <br />
+                    <g:Button ui:field="payButton" styleName="btn btn-primary">Перейти к оплате</g:Button>
+                    <g:Image ui:field="ajaxLoader" url="/static/web/images/ajax-loader.gif" styleName="deliveryAjaxLoader"
+                             visible="false"/>
+                </g:HTMLPanel>
+
+
+            </div>
+        </g:HTMLPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

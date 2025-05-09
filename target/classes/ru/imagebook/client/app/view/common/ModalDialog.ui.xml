@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <g:FlowPanel styleName='modal fade' ui:field="modal">
+        <g:FlowPanel ui:field="dialog" styleName='modal-dialog'>
+            <g:FlowPanel styleName='modal-content'>
+                <g:FlowPanel styleName='modal-header' ui:field="header">
+                    <im:XButton styleName="close" dataDismiss="modal" areaHidden="true">×</im:XButton>
+                </g:FlowPanel>
+                <g:FlowPanel styleName='modal-body' ui:field="body" />
+                <g:FlowPanel styleName='modal-footer' ui:field="footer">
+                    <g:Button ui:field="okButton" styleName='btn btn-primary'>OK</g:Button>
+                    <g:Button ui:field="cancelButton" styleName='btn btn-default'>Cancel</g:Button>
+                </g:FlowPanel>
+            </g:FlowPanel>
+        </g:FlowPanel>
+    </g:FlowPanel>
+
+</ui:UiBinder>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<!-- Spring security -->
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- SSL -->
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Yandex.Kassa</web-resource-name>
+			<url-pattern>/ya_kassa/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<!-- Cache -->
+
+	<filter>
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>ru.minogin.core.server.filter.CacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+    <filter>
+        <filter-name>openEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+        <init-param>
+            <param-name>entityManagerFactory</param-name>
+            <param-value>entityManagerFactory</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>openEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <!-- Spring -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<!-- GWT -->
+
+	<servlet>
+		<servlet-name>RemoteServiceDispatcher</servlet-name>
+		<servlet-class>ru.minogin.core.server.rpc.XRemoteServiceDispatcher</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RemoteServiceDispatcher</servlet-name>
+		<url-pattern>*.remoteService</url-pattern>
+	</servlet-mapping>
+
+	<!-- CKFinder -->
+
+	<servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>ru.minogin.ui.server.ckfinder.CKFinderConnectorServlet</servlet-class>
+		<init-param>
+			<param-name>XMLConfig</param-name>
+			<param-value>/WEB-INF/ckfinder-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<url-pattern>/static/ckfinder/core/connector/java/connector.java</url-pattern>
+	</servlet-mapping>
+
+	<!-- Web -->
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>SiteDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SiteDispatcher</servlet-name>
+		<url-pattern>/site/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminDispatcher</servlet-name>
+		<url-pattern>/admin/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Admin2Dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Admin2Dispatcher</servlet-name>
+		<url-pattern>/admin2/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdmDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdmDispatcher</servlet-name>
+		<url-pattern>/adm/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AppDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AppDispatcher</servlet-name>
+		<url-pattern>/app/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditorDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EditorDispatcher</servlet-name>
+		<url-pattern>/editor/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FlashDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FlashDispatcher</servlet-name>
+		<url-pattern>/flash/publish/*</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApiDispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ApiDispatcher</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+		<servlet-name>ExchangeDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ExchangeDispatcher</servlet-name>
+		<url-pattern>/exchange/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Servlets -->
+
+	<!-- <servlet> <servlet-name>ActivationServlet</servlet-name> <servlet-class>ru.imagebook.server.servlet.ActivationServlet</servlet-class> 
+		</servlet> -->
+
+	<servlet>
+		<servlet-name>BonusCodesServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.BonusCodesServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>BonusStatusServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.BonusStatusServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CalcServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.CalcServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DownloadServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.ImagebookDownloadServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>EditorPreviewServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.EditorPreviewServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EditorComponentServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.EditorComponentServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EmailActivationServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.EmailActivationServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FinishingPreviewServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.FinishingPreviewServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OrderImportServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.orderImport.OrderImportServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FlashServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.PreviewServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FlashXmlServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.FlashXmlServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FlashImageServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.FlashImageServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>WebFlashXmlServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.WebFlashXmlServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>WebFlashImageServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.WebFlashImageServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PHPriceServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.PHPriceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PriceServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.PriceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<servlet-class>ru.minogin.core.server.flow.remoting.RemotingServiceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>QiwiServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.QiwiServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AppRecoverPasswordServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.RecoverPasswordServlet</servlet-class>
+
+		<init-param>
+			<param-name>module</param-name>
+			<param-value>App</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EditorRecoverPasswordServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.RecoverPasswordServlet</servlet-class>
+
+		<init-param>
+			<param-name>module</param-name>
+			<param-value>Editor</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>TestLogServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.TestLogServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>TestRequestServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.test.TestRequestServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DeliveryServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.DeliveryServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.UploadServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ProductLoaderServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.integration.ProductLoaderServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CatalogLoaderServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.integration.CatalogLoaderServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PriceLoaderServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.integration.PriceLoaderServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FileDownloaderServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.FileDownloaderServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UnsubscribeMailingServlet</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.UnsubscribeMailingServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<servlet-class>ru.imagebook.server.servlet.ExtendedCaptchaServlet</servlet-class>
+		<init-param>
+			<param-name>width</param-name>
+			<param-value>200</param-value>
+		</init-param>
+		<init-param>
+			<param-name>height</param-name>
+			<param-value>50</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- Mapping -->
+
+	<!-- <servlet-mapping> <servlet-name>ActivationServlet</servlet-name> <url-pattern>/app/activation</url-pattern> 
+		</servlet-mapping> -->
+
+	<servlet-mapping>
+		<servlet-name>BonusCodesServlet</servlet-name>
+		<url-pattern>/admin/bonusCodes</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>BonusStatusServlet</servlet-name>
+		<url-pattern>/app/bonusStatus</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CalcServlet</servlet-name>
+		<url-pattern>/calc/</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DownloadServlet</servlet-name>
+		<url-pattern>/admin/download</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DownloadServlet</servlet-name>
+		<url-pattern>/app/download</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>EditorPreviewServlet</servlet-name>
+		<url-pattern>/editor/preview</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EditorComponentServlet</servlet-name>
+		<url-pattern>/editor/component</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/editor/upload</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EmailActivationServlet</servlet-name>
+		<url-pattern>/app/emailActivation</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FinishingPreviewServlet</servlet-name>
+		<url-pattern>/admin/finishingPreview</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FlashServlet</servlet-name>
+		<url-pattern>/flash/</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FlashXmlServlet</servlet-name>
+		<url-pattern>/flash/xml</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FlashImageServlet</servlet-name>
+		<url-pattern>/flash/image</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>OrderImportServlet</servlet-name>
+		<url-pattern>/site/loadOrder</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>WebFlashXmlServlet</servlet-name>
+		<url-pattern>/site/webXml</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>WebFlashImageServlet</servlet-name>
+		<url-pattern>/site/webImage</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PriceServlet</servlet-name>
+		<url-pattern>/site/price</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PHPriceServlet</servlet-name>
+		<url-pattern>/site/phPrice</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/gwt.app/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/gwt.admin/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/gwt.admin2/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/gwt.editor/remotingService</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/calc/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/editor/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RemotingServiceServlet</servlet-name>
+		<url-pattern>/flash/remotingService</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>QiwiServlet</servlet-name>
+		<url-pattern>/app/qiwi</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AppRecoverPasswordServlet</servlet-name>
+		<url-pattern>/app/recoverPassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EditorRecoverPasswordServlet</servlet-name>
+		<url-pattern>/editor/recoverPassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>TestLogServlet</servlet-name>
+		<url-pattern>/testLog</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>TestRequestServlet</servlet-name>
+		<url-pattern>/admin/testRequest</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DeliveryServlet</servlet-name>
+		<url-pattern>/admin/delivery</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProductLoaderServlet</servlet-name>
+		<url-pattern>/site/connector/loadproducts</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CatalogLoaderServlet</servlet-name>
+		<url-pattern>/site/connector/loadcatalog</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PriceLoaderServlet</servlet-name>
+		<url-pattern>/site/connector/loadpricelist</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FileDownloaderServlet</servlet-name>
+		<url-pattern>/downloadfile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UnsubscribeMailingServlet</servlet-name>
+		<url-pattern>/app/unsubscribe</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<url-pattern>/app/SimpleCaptcha.jpg</url-pattern>
+		<url-pattern>/editor/SimpleCaptcha.jpg</url-pattern>
+	</servlet-mapping>
+
+	<!-- Welcome -->
+
+	<welcome-file-list>
+		<welcome-file>app</welcome-file>
+	</welcome-file-list>
+
+	<!-- Error -->
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/static/error.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/</location>
+	</error-page>
+</web-app>

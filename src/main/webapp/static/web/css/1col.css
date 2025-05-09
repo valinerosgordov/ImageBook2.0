@@ -1,0 +1,12 @@
+/* CSS Document */
+
+.RIGHT {
+	display:none;
+}
+.LEFT {
+	display:none;
+}
+.content {
+	padding-right:0px;
+	padding-left:0px;
+}

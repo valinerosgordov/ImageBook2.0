@@ -1,0 +1,17 @@
+.album-preview {
+	z-index: 100;
+}
+
+.album-preview a {
+	font-size: 14pt;
+	color: white;
+}
+
+.album-preview-content {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+	background-color: #ffffff;
+}
+
+.album-preview-close-button {
+    font-size: 15px;
+}

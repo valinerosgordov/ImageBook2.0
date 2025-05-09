@@ -1,0 +1,141 @@
+body {
+	font-family: Arial;
+	font-size: 14px;
+	padding: 0em;
+	margin: 0em;
+}
+
+input {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+select {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	cursor: pointer;
+}
+
+input[type="radio"] {
+	cursor: pointer;
+}
+
+h2 {
+	margin-top: 2em;
+}
+
+#header {
+	margin-left: 1em;
+}
+
+#header-title {
+	font-size: 2em;
+}
+
+#header-subtitle {
+	margin-top: 0.5em;
+	font-size: 1.3em;
+}
+
+/*#menu {*/
+	/*margin-top: 1em;*/
+	/*background: lightgrey;*/
+	/*padding: 0.5em;*/
+/*}*/
+
+/*#menu a {*/
+	/*margin-left: 1em;*/
+	/*margin-right: 1em;*/
+/*}*/
+
+#content-top {
+	margin-left: 1em;
+}
+
+#nav {
+	margin-top: 1em;
+	height: 1em;
+}
+
+#title {
+	font-size: 2em;
+	margin-top: 0.3em;
+	margin-bottom: 0.5em;
+}
+
+#content {
+	margin: 1em;
+    margin-top: 50px;
+}
+
+.types-addButton {
+	margin-left: 1em;
+}
+
+.types-deleteButton {
+	margin-left: 0.2em;
+}
+
+.fieldPanel td {
+	vertical-align: middle;
+}
+
+.fieldPanel .gwt-Label {
+	width: 10em;
+}
+
+.positionsList {
+	
+}
+
+.textPositionsList {
+	margin-top: 2em;
+}
+
+.uploadPanel {
+	margin-top: 2em;
+}
+
+.users-currentAlbum {
+	background-color: lightgreen;
+}
+
+.code-field {
+	white-space: nowrap;
+}
+
+.gwt-Button {
+	white-space: nowrap;
+}
+
+.pangram {
+	margin-left: 50px;
+}
+
+.fontPanel {
+	margin-top: 50px;
+}
+
+.list-tool {
+	margin-left: 1em;
+}
+
+.vendors-themesPanel {
+	margin-left: 2em;
+}
+
+.navbar-header .navbar-brand {
+    background-color: #e7e7e7;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="Address" table="address">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="country"  />
+		<property name="index" column="`index`" />
+		<property name="region" />
+		<property name="city" />
+		<property name="street" />
+		<property name="home" />
+		<property name="building" />
+		<property name="office" />
+		<property name="comment" type="text" />
+		<property name="name"  />
+		<property name="lastName" column="last_name" />
+		<property name="surname" />
+		<property name="phone" />
+        <property name="porch" />
+        <property name="floor" />
+        <property name="intercom" />
+        <property name="email" />
+	</class>
+</hibernate-mapping>

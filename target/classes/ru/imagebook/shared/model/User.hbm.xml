@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="User" table="user">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<one-to-one name="account" property-ref="user" />
+		<property name="password" />
+		<property name="name" />
+		<property name="lastName" column="last_name" />
+		<property name="surname" />
+		<property name="skipMailing" not-null="true" />
+		<property name="urgentOrders" not-null="true" />
+		<property name="advOrders" not-null="true" />
+		<property name="oldPrice" not-null="true" />
+		<property name="photographer" not-null="true" />
+        <property name="registered" not-null="true" />
+		<set name="roles" cascade="all,delete-orphan">
+			<key column="user" not-null="true"/>
+			<one-to-many class="RoleImpl" />
+		</set>
+		<set name="accessedProducts" cascade="save-update" table="user_product_access">
+			<key column="user_id" not-null="true"/>
+			<many-to-many column="product_id" class="ProductImpl"/>
+		</set>
+		<list name="emails" cascade="all,delete-orphan">
+			<key column="user_id" not-null="true" />
+			<list-index column="_index" />
+			<one-to-many class="Email" />
+		</list>
+		<list name="phones" cascade="all,delete-orphan">
+			<key column="user_id" not-null="true"/>
+			<list-index column="_index" />
+			<one-to-many class="Phone" />
+		</list>
+		<list name="addresses" cascade="all,delete-orphan">
+			<key column="user_id" not-null="true" />
+			<list-index column="_index" />
+			<one-to-many class="Address" />
+		</list>
+		<property name="locale" not-null="true" />
+		<property name="invitationState" column="invitation_state" />
+		<property name="info" type="text" />
+		<property name="level" />
+		<set name="orders" inverse="true">
+			<key column="user" not-null="true" />
+			<one-to-many class="OrderImpl" />
+		</set>
+		<many-to-one name="settings" column="settings_id" unique="true" cascade="all" />
+		<property name="registerType" column="register_type" not-null="true" />
+		<many-to-one name="vendor" column="vendor_id" not-null="true" />
+		<property name="discountPc" not-null="true" />
+		<property name="date" not-null="true" />
+		<property name="logonDate" column="logon_date"/>
+		<set name="albumDiscounts" cascade="all,delete-orphan">
+			<key column="user" not-null="true"/>
+			<one-to-many class="UserAlbumDiscount"/>
+		</set>
+		<property name="editorSourcesStoragePeriod" column="editor_sources_storage_period" />
+
+		<properties name="userVendorConstraint" unique="true">
+			<property name="userName" column="user_name" not-null="true" />
+			<many-to-one name="vendor" column="vendor_id" not-null="true" insert="false" update="false"/>
+		</properties>
+		<filter name="vendorUsers" condition="vendor_id = :vendorId" />
+	</class>
+
+	<filter-def name="vendorUsers">
+		<filter-param name="vendorId" type="integer" />
+	</filter-def>
+</hibernate-mapping>

@@ -1,0 +1,180 @@
+<i-notification></i-notification>
+
+<div class="feedback-header">
+
+    <div class="recommendation-slider">
+        <div class="slider-title">
+            <label>Рекомендации</label>
+        </div>
+        <ul rn-carousel rn-carousel-controls rn-carousel-indicator="true" rn-carousel-auto-slide="4">
+            <li class="video" ng-repeat="recommendation in recommendations | orderBy:'date':true">
+                <div class="item">
+                    <img ng-src="/api/image/recommendation/{{recommendation.imageName}}"
+                         ng-click="openRecommendationView($index)"/>
+                    <label title="{{recommendation.name}}" class="name" ng-bind="recommendation.name"></label>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <p i-unsafe="feedbackText" class="feedback-text"></p>
+
+    <div class="i-block-ui" ng-if="recommendationView" ng-click="closeRecommendationView($event)"></div>
+    <div class="recommendation-view-slider" ng-if="recommendationView">
+        <div class="controls">
+            <button ng-click="closeRecommendationView($event)" class="i-close"></button>
+        </div>
+        <ul rn-carousel rn-carousel-controls rn-carousel-indicator="true" rn-carousel-index="currentRecommendation">
+            <li ng-repeat="recommendation in recommendations | orderBy:'date':true" ng-click="closeRecommendationView($event)">
+                <div class="item">
+                    <img ng-src="/api/image/recommendation/{{recommendation.imageName}}" style=""/>
+                    <div class="name"  title="{{recommendation.name}}"
+                         ng-bind="recommendation.name"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="feedbacks-container">
+    <div class="inner-feedbacks">
+        <div class="create-feedback">
+            <h3>Отзывы на сайте</h3>
+            <button ng-click="create()" ng-hide="creating" class="i-btn">Оставить отзыв</button>
+            <form ng-if="creating" name="feedbackForm" novalidate>
+                <div class="form-line">
+                    <label class="i-notice"><span class="required">*</span> поля, обязательные для заполнения</label>
+                </div>
+                <div class="form-line">
+                    <label>Имя <span class="required">*</span></label>
+                    <input type="text" name="name" ng-model="newFeedback.name" ng-disabled="feedbackUser"
+                           class="i-input" maxlength="255" required>
+                    <div ng-show="feedbackForm.name.$dirty && feedbackForm.name.$invalid">
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.name.$error.required">
+                            Введите имя.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-line">
+                    <label>Должность</label>
+                    <input type="text" name="profession" ng-model="newFeedback.feedbackUser.profession"
+                           class="i-input" maxlength="255">
+                </div>
+
+                <div class="form-line">
+                    <label>Организация</label>
+                    <input type="text" name="office" ng-model="newFeedback.feedbackUser.office"
+                           class="i-input" maxlength="255">
+                </div>
+
+                <div class="form-line">
+                    <label>
+                        Адрес электронной почты
+                        <span class="required">*</span>
+                        <span class="i-notice">(не публикуется)</span>
+                    </label>
+                    <input type="email" name="email" ng-model-options="{ updateOn: 'blur' }"
+                           ng-model="newFeedback.email" ng-disabled="feedbackUser"
+                            class="i-input" maxlength="255" required>
+                    <div ng-show="feedbackForm.email.$dirty && feedbackForm.email.$invalid">
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.email.$error.required">
+                            Введите адрес электронной почты.
+                        </div>
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.email.$error.email">
+                            Введите правильный адрес электронной почты.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-line">
+                    <label>
+                        Телефон
+                        <span class="i-notice">(не публикуется)</span>
+                    </label>
+                    <input type="text" name="phone" ng-model="newFeedback.phone" ng-disabled="feedbackUser"
+                           ng-model-options="{ updateOn: 'blur' }" class="i-input" maxlength="255" number>
+                </div>
+
+                <div class="form-line">
+                    <label>Отзыв <span class="required">*</span></label>
+                    <textarea name="message" ng-model="newFeedback.message" class="i-input" required></textarea>
+                    <div ng-show="feedbackForm.message.$dirty && feedbackForm.message.$invalid">
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.message.$error.required">
+                            Введите отзыв.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-line" ng-if="!feedbackUser">
+                    <label>Введите ответ <span class="required">*</span></label>
+                    <button class="i-btn update" ng-click="updateExpression()"></button>
+                    <span class="expression">{{expression.first}}+{{expression.second}}=</span>
+                    <input  type="text" name="check" ng-model="$parent.$parent.check" class="i-input check"
+                            ng-model-options="{ updateOn: 'blur' }" required expression>
+                    <div ng-show="feedbackForm.check.$dirty && feedbackForm.check.$invalid">
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.check.$error.required">
+                            Введите ответ.
+                        </div>
+                        <div class="i-alert i-alert-danger" ng-show="feedbackForm.check.$error.expression">
+                            Введите правильный ответ.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-line">
+                    <div class="blockquote">
+                        Нажимая кнопку "Оставить отзыв" Вы подтверждаете, что ознакомились и согласны с <a href="http://imagebook.ru/var/files/doc/offer.pdf" target="_blank">публичной офертой</a>
+                        и <a href="http://imagebook.ru/soglashenie" target="_blank">соглашением об обработке персональных данных.</a>
+                    </div>
+                    <br/>
+                    <div class="controls">
+                        <button ng-click="cancel()" class="i-btn">Отмена</button>
+                        <button ng-click="save(newFeedback)" class="i-btn" ng-disabled="feedbackForm.$invalid || saving">Оставить отзыв</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="i-alert" ng-show="contextStarted && !feedbacks.length">Еще нет отзывов</div>
+
+        <div class="feedbacks" ng-hide="contextStarted && !feedbacks.length">
+            <div ng-show="feedbacks" ng-repeat="feedback in feedbacks | orderBy:'createDate':true"
+                 class="feedback-item">
+                <div class="header">
+                    <span ng-bind="feedback.feedbackUser.name" class="name"></span>
+                    <span class="i-notice feedback-date">({{feedback.createDate | date:'dd/MM/yyyy'}})</span>
+                </div>
+                <div class="message" ng-bind="feedback.message"></div>
+                <div ng-if="feedback.feedbackAnswer" class="feedback-answer">
+                    <div class="header">
+                        <span ng-bind="config.feedbackAnswerUserName" class="name"></span>
+                        <span class="i-notice">({{feedback.feedbackAnswer.answerDate | date:'dd/MM/yyyy'}})</span>
+                    </div>
+                    <div i-unsafe="feedback.feedbackAnswer.answer"></div>
+                </div>
+            </div>
+            <button ng-click="load()" ng-if="!nothingLoad" class="i-btn load-feedback" ng-class="{'loading-feedback':loadingFeedback}">
+                <span ng-hide="loadingFeedback">Посмотреть еще</span>
+                <span ng-show="loadingFeedback">&nbsp;</span>
+            </button>
+            <div class="i-alert" ng-show="nothingLoad">Больше нет отзывов</div>
+            <i-loader></i-loader>
+        </div>
+
+    </div>
+
+    <div class="vk-feedbacks">
+        <h3>Вконтакте</h3>
+        <i-vk-comments api-id="config.vkApiId" limit="config.pageSize"
+                       width="310"/>
+    </div>
+    <div class="facebook-feedbacks">
+        <h3>Facebook</h3>
+        <i-fb-comments href="config.facebookHref"
+                       width="290" numposts="config.pageSize"
+                       ng-if="contextStarted"/>
+    </div>
+</div>

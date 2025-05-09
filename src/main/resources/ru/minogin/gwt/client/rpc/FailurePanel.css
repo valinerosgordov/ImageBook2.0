@@ -1,0 +1,7 @@
+.failurePanel {
+	position: absolute;
+	background: yellow;
+	border: 2px solid gray;
+	padding: 10px;
+	width: 300px;
+}

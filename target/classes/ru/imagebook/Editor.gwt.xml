@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module rename-to="gwt.editor">
+	<source path="client">
+		<include name="editor/**" />
+		<include name="common/**" />
+	</source>
+	<source path="shared" />
+
+	<inherits name="com.google.common.base.Base" />
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name='org.vaadin.gwtgraphics.GWTGraphics' />
+
+	<inherits name="com.google.gwt.user.theme.standard.Standard" />
+
+	<inherits name="ru.minogin.core.Core" />
+	<inherits name="ru.saasengine.SaasEngine" />
+
+	<extend-property name="locale" values="ru" />
+
+	<entry-point class="ru.imagebook.client.editor.EditorEntryPoint" />
+</module>

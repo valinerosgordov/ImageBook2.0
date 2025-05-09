@@ -1,0 +1,127 @@
+<i-notification></i-notification>
+<div class="admin-recommendations">
+    <div class="title panel-group">
+        <h2>Рекомендации</h2>
+    </div>
+    <div class="create">
+        <button class="btn btn-default" ng-click="creating = true" ng-hide="creating">Создать новую</button>
+        <form name="form" role="form" ng-if="creating" novalidate>
+            <div class="form-group">
+                <label for="name">Название <span class="required"> *</span></label>
+                <input ng-model="recommendation.name" class="form-control" id="name" name="name"
+                       placeholder="Введите название" maxlength="120" required>
+            </div>
+            <div ng-show="form.name.$dirty && form.name.$invalid">
+                <div class="alert alert-danger" ng-show="form.name.$error.required">
+                    Введите название.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Файл <span class="required"> *</span></label>
+                <input type="file" ng-model="recommendation.file" i-valid-file
+                       ng-file-select="fileSelect(recommendation, $files)">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Дата <span class="required"> *</span></label>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="recommendation.date"
+                           is-open="$parent.opened" datepicker-options="dateOptions" name="date"
+                           date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" disabled required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </p>
+            </div>
+            <div ng-show="form.date.$dirty && form.date.$invalid">
+                <div class="alert alert-danger" ng-show="form.date.$error.required">
+                    Введите дату.
+                </div>
+            </div>
+
+
+            <div class="create-controls">
+                <button ng-click="cancel()" class="btn btn-danger" ng-disabled="saving">Отмена</button>
+                <button ng-click="create(recommendation)" ng-disabled="form.$invalid || saving"
+                        class="btn btn-success save">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="i-alert" ng-show="contextStarted && !recommendations.length">Еще нет рекомендаций</div>
+
+    <div ng-repeat="recommendation in recommendations | orderBy:'date':true"
+         ng-controller="RecommendationItemCntr" class="recommendation panel panel-default">
+        <div class="panel-body">
+            <form name="itemForm" novalidate>
+                <div class="header">
+                    <div ng-hide="updating" class="show-fields">
+                        <!--Title-->
+                        <p class="title" title="{{recommendation.name}}">{{recommendation.name}}</p>
+                        <!--Date-->
+                        <p ng-bind="recommendation.date|date:'dd/MM/yyyy'"></p>
+                    </div>
+
+                    <div class="edit-fields" ng-show="updating">
+                        <!--Title-->
+                        <div class="form-group" ng-class="{'has-error': itemForm.name.$invalid}">
+                            <input ng-model="updatedRecommendation.name" class="form-control name"
+                                   name="name" placeholder="Введите название" maxlength="120" required>
+                        </div>
+                        <!--Date-->
+                        <div class="form-group">
+                            <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="updatedRecommendation.date"
+                                       is-open="opened" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" close-text="Close" disabled/>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div><!--end Date-->
+                    </div>
+                </div>
+                <div class="content">
+                    <span class="number">{{$index + 1}}.</span>
+                    <img ng-click="view(recommendation)" ng-src="/api/image/recommendation/{{recommendation.imageName}}"/>
+                </div>
+                <div class="controls">
+                    <button ng-click="save(updatedRecommendation, recommendation)"
+                            ng-disabled="saving || itemForm.name.$invalid" class="btn btn-success btn-block"
+                            ng-if="updating">Сохранить</button>
+                    <button ng-click="edit(recommendation)" class="btn btn-default btn-block" ng-if="!updating">Редактировать</button>
+                    <button ng-click="cancel()" ng-disabled="saving" class="btn btn-danger btn-block" ng-if="updating">Отмена</button>
+                    <button ng-click="remove(recommendation)" class="btn btn-danger btn-block">Удалить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="viewRecommendationTemplate">
+        <div class="recommendation-view-model">
+            <div class="modal-header">
+                <h3 class="modal-title">Рекомендации</h3>
+            </div>
+            <div class="modal-body">
+                <carousel interval="-1">
+                    <slide ng-repeat="recommendation in recommendations | orderBy:'date':true" active="recommendation.active">
+                        <img ng-src="/api/image/recommendation/{{recommendation.imageName}}" style="margin:auto;">
+                        <div class="carousel-caption">
+                            <h4>
+                                <span title="{{recommendation.name}}" class="recommendation-name">{{recommendation.name}}</span>
+                            </h4>
+                        </div>
+                    </slide>
+                </carousel>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" ng-click="close()">Закрыть</button>
+            </div>
+        </div>
+    </script>
+
+</div>
+

@@ -1,0 +1,179 @@
+.link {
+	color: #0066cc;
+}	
+
+.link:hover {
+	color: #003366;
+}
+
+#app-title {
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	background: #1E4176 url(../images/title.gif) repeat-x scroll 0 50%;
+	border: 0 none;
+	color: white;
+	font-family: tahoma, arial, sans-serif;
+	font-size: 16px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	padding: 6px 0 8px 9px;
+}
+
+.thumb {
+	padding: 3px;
+	text-align: center;
+}
+
+.thumb img {
+	height: 42px;
+	width: 42px;
+}
+
+.thumb-wrap {
+	float: left;
+	margin: 2px;
+	margin-right: 0;
+	padding: 3px;
+}
+
+.thumb-wrap span {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.info td {
+	font-size: 12px;
+	padding: 2px;
+}
+
+.help {
+	font-size: 14px;
+}
+
+.help h1 {
+	font-size: 18px;
+	padding-bottom: 10px;
+}
+
+.help h2 {
+	font-weight: bold;
+}
+
+.help p {
+	padding-left: 0px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.filterAppliedMessage {
+	color: OrangeRed !important;
+}
+
+.form-separator {
+	border: 0;
+	height: 1px;
+	color: #b5b8c8;
+	background-color: #b5b8c8;
+}
+
+.large-button button {
+	font-size: 16px;
+}
+
+.large-font {
+	font-size: 16px;
+}
+
+.tutorial-text {
+	font-size: 14px;
+}
+
+.tutorial-text button {
+	font-size: 14px;
+}
+
+.app-hr {
+	border: 0;
+	height: 1px;
+	color: LightGrey;
+	background-color: LightGrey;
+	margin: 2px;
+}
+
+/* GXT overload */
+#x-desktop {
+	padding-top: 40px;
+}
+
+#x-shortcuts dt {
+	margin: 10px 0 0 10px;
+	clear: none;
+	width: 70px;
+}
+
+#x-shortcuts dt a {
+	color: black;
+	width: 70px;
+}
+
+#x-shortcuts dt div {
+	color: black;
+}
+
+.ux-taskbutton-left {
+	background: url( ../images/taskbar/blue/taskbutton.gif ) no-repeat 0 0;
+}
+
+.ux-taskbutton-right {
+	background: url( ../images/taskbar/blue/taskbutton.gif ) no-repeat 0
+		-28px;
+}
+
+.ux-taskbutton-center {
+	background: url( ../images/taskbar/blue/taskbutton.gif ) repeat-x 0
+		-56px;
+}
+
+#ux-taskbar .active-win  .ux-taskbutton-right {
+	background: url( ../images/taskbar/blue/taskbutton.gif ) no-repeat 0
+		-112px;
+}
+
+#ux-taskbar .active-win .ux-taskbutton-center {
+	background: url( ../images/taskbar/blue/taskbutton.gif ) repeat-x 0
+		-140px;
+}
+
+#ux-taskbuttons-panel {
+	background: #000000
+		url( ../images/taskbar/blue/taskbuttons-panel-bg.gif ) repeat-x left
+		top;
+}
+
+.ux-taskbuttons-scroller-left {
+	background: transparent url( ../images/taskbar/blue/scroll-left.gif )
+		no-repeat -18px 0;
+}
+
+.ux-taskbuttons-scroller-right {
+	background: transparent url( ../images/taskbar/blue/scroll-right.gif )
+		no-repeat 0 0;
+}
+
+.ux-start-menu-tools-panel .x-menu-item-active {
+	background: #525456 url( ../images/taskbar/blue/item-over.gif )
+		repeat-x left bottom;
+}
+
+#ux-taskbar .x-splitbar-h {
+	background: #000000 url( ../images/taskbar/blue/taskbar-split-h.gif )
+		no-repeat 0 0;
+}

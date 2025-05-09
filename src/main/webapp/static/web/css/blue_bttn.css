@@ -1,0 +1,45 @@
+/* BUTTONS */
+button.blue,input.blue {
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+button.blue,input.blue,a.blue,a.blue-pressed {
+	height: 36px;
+	font-size: 14px;
+	color: #FFF;
+	text-align: center;
+	padding: 0px 15px;
+	border: 1px solid;
+	border-radius: 20px;
+	border-width: 0px 1px 1px 1px;
+	margin-bottom: 10px;
+}
+
+button.blue,input.blue,a.blue {
+	background: url('../images/bttn-blue0.gif') repeat-x top;
+	border-color: #0e689b;
+}
+
+button.blue:hover,input.blue:hover,a.blue:hover {
+	background: url('../images/bttn-blue0a.gif') repeat-x top;
+	border-color: #0e689b;
+}
+
+a.blue,a.blue-pressed {
+	display: inline-block;
+	height: 25px;
+	text-decoration: none;
+	padding: 10px 15px 0;
+}
+
+a.blue:visited {
+	color: white;
+}
+
+a.blue-pressed {
+	background: url('../images/bttn-blue0p.gif') repeat-x top;
+	border-color: #571;
+}

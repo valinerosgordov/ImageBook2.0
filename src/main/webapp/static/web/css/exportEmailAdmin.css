@@ -1,0 +1,22 @@
+.admin-exportEmail {
+    width: 500px;
+}
+
+.form-group .control-label {
+    text-align: left;
+    padding-top: 0;
+}
+
+.button {
+    position: relative;
+    width: 180px;
+    text-align: left;
+}
+
+.spinner {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+}

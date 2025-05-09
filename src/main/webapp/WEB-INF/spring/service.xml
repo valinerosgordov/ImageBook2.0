@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <!-- Spring cash annotation support -->
+    <cache:annotation-driven/>
+
+    <task:annotation-driven/>
+
+    <!-- Ehcache setup -->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcache"/>
+    </bean>
+
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml"/>
+    </bean>
+
+    <bean id="cleanService" class="ru.imagebook.server.service.clean.CleanServiceImpl"/>
+
+    <bean id="coreFactory" class="ru.minogin.core.server.CoreFactoryImpl"
+          autowire="constructor"/>
+
+    <bean id="authService" class="ru.imagebook.server.service.ImagebookAuthServiceImpl"
+          autowire="constructor">
+        <property name="enableConcurrentLogin" value="true"/>
+    </bean>
+
+    <bean id="beanStoreService"
+          class="ru.saasengine.server.service.beanstore.BeanStoreServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="remotingTxService"
+          class="ru.minogin.core.server.flow.remoting.RemotingTxServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="orderService" class="ru.imagebook.server.service.OrderServiceImpl"/>
+
+    <bean id="orderService2" class="ru.imagebook.server.service.OrderService2Impl"
+          autowire="constructor"/>
+
+    <bean id="billService" class="ru.imagebook.server.service.BillServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="ooClient" class="ru.minogin.oo.server.OOClient"
+          autowire="constructor"/>
+
+    <bean id="activationService" class="ru.imagebook.server.service.ActivationServiceImpl"/>
+
+    <bean id="priceService" class="ru.imagebook.server.service.PriceServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="phPriceService" class="ru.imagebook.server.service.PHPriceServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="securityService" class="ru.imagebook.server.service.SecurityServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="userService" class="ru.imagebook.server.service.UserServiceImpl"/>
+
+    <bean id="productService" class="ru.imagebook.server.service.ProductServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="webService" class="ru.imagebook.server.service2.web.WebServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="sessionHolder" class="ru.imagebook.server.service.SessionHolder"
+          autowire="constructor"/>
+
+    <bean class="ru.imagebook.server.service.StartupServiceImpl"/>
+
+    <bean id="calcService" class="ru.imagebook.server.service.CalcServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="requestService" class="ru.imagebook.server.service.request.RequestServiceImpl"/>
+
+    <bean id="actionService" class="ru.imagebook.server.service.ActionServiceImpl"/>
+
+    <bean id="notifyService" class="ru.imagebook.server.service.notify.NotifyServiceImpl"/>
+
+    <bean id="backupService" class="ru.imagebook.server.service.backup.BackupServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="updateService" class="ru.imagebook.server.service.UpdateServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="qiwiService" class="ru.imagebook.server.service.qiwi.QiwiServiceImpl"/>
+
+    <bean id="siteService" class="ru.imagebook.server.service.site.SiteServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="loadService" class="ru.imagebook.server.service.load.LoadServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="loadTxService" class="ru.imagebook.server.service.load.LoadTxServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="flashTxService" class="ru.imagebook.server.service.flash.FlashTxServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="pdfService" class="ru.imagebook.server.service.pdf.PdfServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service.pdf.PdfTxServiceImpl"/>
+
+    <bean id="heavyExecutorService" class="ru.imagebook.server.service.HeavyExecutorServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="deliveryService" class="ru.imagebook.server.service.DeliveryServiceImpl"/>
+
+    <bean id="finishingService" class="ru.imagebook.server.service.FinishingServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="editorService" class="ru.imagebook.server.service.editor.EditorServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="editorTxService" class="ru.imagebook.server.service.editor.EditorTxServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="vendorService" class="ru.imagebook.server.service.VendorServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="mailingService" class="ru.imagebook.server.service.MailingServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="orderImportService" class="ru.imagebook.server.service.OrderImportServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="codesImportService" class="ru.imagebook.server.service.CodesImportServiceImpl"
+          autowire="constructor"/>
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <!-- ************************************************************************************** -->
+
+    <bean class="ru.imagebook.server.service2.pdf.PdfTransferServiceImpl"
+          autowire="constructor"/>
+
+    <bean class="ru.imagebook.server.service2.pdf.PdfTransferSubmitterImpl"
+          autowire="constructor"/>
+
+    <bean class="ru.imagebook.server.service2.pdf.PdfTransferEngineImpl"/>
+
+    <!--<bean class="ru.imagebook.server.service2.web.WebServiceImpl" /> -->
+
+    <bean class="ru.imagebook.server.service2.security.AuthServiceImpl"/>
+
+    <bean class="ru.minogin.core.server.hibernate.DehibernateAdvice"/>
+
+    <bean class="ru.minogin.core.server.push.PushRemoteServiceImpl"/>
+
+    <bean class="ru.minogin.core.server.gxt.HtmlFieldServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service2.admin.SiteServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service2.admin.TagServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service.flash.FlashServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service2.flash.FlashServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.flash.XFlashServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.flash.XmlFlashServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service2.weight.WeightServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service.RoboServiceImpl"/>
+    <bean class="ru.imagebook.server.service.MailruServiceImpl"/>
+
+    <bean class="ru.imagebook.server.service2.admin.CountryServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.admin.ZoneServiceImpl"/>
+    <bean class="ru.imagebook.server.service.QuestionServiceImpl"/>
+    <bean class="ru.imagebook.server.service.QuestionSiteServiceImpl"/>
+    <bean class="ru.imagebook.server.service.QuestionCategoryServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.admin.RegionServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.admin.DeliveryAssemblyServiceImpl"/>
+    <bean class="ru.imagebook.server.service.FeedbackServiceImpl"/>
+    <bean class="ru.imagebook.server.service.FeedbackAnswerServiceImpl"/>
+    <bean class="ru.imagebook.server.service.PropertyServiceImpl"/>
+    <bean class="ru.imagebook.server.service.RecommendationServiceImpl"/>
+    <bean class="ru.imagebook.server.service.FeedbackUserServiceImpl"/>
+
+    <!-- PickPoint -->
+    <bean id="pickPointRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+                <property name="connectTimeout" value="${imagebook.delivery.pickpoint.timeout}"/>
+                <property name="readTimeout" value="${imagebook.delivery.pickpoint.timeout}"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <bean class="ru.imagebook.server.service2.app.delivery.PickpointSendingIdGeneratorPrefixAndId"/>
+    <bean class="ru.imagebook.server.service2.app.delivery.PickPointHelperImpl"/>
+    <bean class="ru.imagebook.server.service2.app.delivery.PickPointDeliveryServiceImpl"/>
+    <bean class="ru.imagebook.server.service2.app.delivery.PickPointTransferSendingServiceImpl"/>
+
+    <bean class="ru.minogin.twitter.server.service.site.TwitterServiceImpl"/>
+
+    <bean id="majorExpressService" class="ru.imagebook.server.service2.app.delivery.MajorExpressServiceImpl"
+          init-method="init"/>
+
+    <context:component-scan base-package="ru.imagebook.server.service"/>
+    <context:component-scan base-package="ru.imagebook.server.service2"/>
+    <context:component-scan base-package="ru.minogin.undo.server.service"/>
+    <context:component-scan base-package="ru.imagebook.server.config"/>
+    <context:component-scan base-package="ru.imagebook.server.auth"/>
+    <context:component-scan base-package="ru.imagebook.server.exchange"/>
+    <context:component-scan base-package="ru.imagebook.server.adm"/>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+</beans>

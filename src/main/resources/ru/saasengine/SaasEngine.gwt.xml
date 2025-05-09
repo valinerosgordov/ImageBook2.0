@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module>
+	<inherits name="ru.minogin.core.Core" />
+
+	<source path='client'/>
+</module>

@@ -1,0 +1,17 @@
+.tbl {
+	border-collapse: collapse;
+}
+
+.tbl th {
+	border-color: lightgray;
+	border-style: solid;
+	border-width: 1px;
+	padding: 3px;
+}
+
+.tbl td {
+	border-color: lightgray;
+	border-style: solid;
+	border-width: 1px;
+	padding: 3px;
+}

@@ -1,0 +1,21 @@
+/* CSS Document */
+
+.RIGHT {
+	display:none;
+}
+.content {
+	padding-right:0px;
+}
+#photo-items {
+	margin-right:-20px;
+}
+.photo-item {
+	width:340px;
+	margin-right:20px !important;
+}
+.photo-item img {
+	margin-bottom:0;
+}
+.LEFT {
+	/*background:url(../pix/ruler.gif) no-repeat left top;*/
+}

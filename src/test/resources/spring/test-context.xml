@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="fileEncoding" value="UTF-8"/>
+        <property name="nullValue" value=""/>
+        <property name="locations">
+            <list>
+                <value>classpath:test-app.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="ru.imagebook.server.service2.app.delivery.DeliveryConfig">
+        <property name="majorCityName" value="${imagebook.delivery.major_city_name}"/>
+        <property name="majorClientName" value="${imagebook.delivery.major_client_name}"/>
+        <property name="majorWbCost" value="${imagebook.delivery.major_valuation_rub}"/>
+
+        <property name="pickPointTimeout" value="${imagebook.delivery.pickpoint.timeout}"/>
+        <property name="pickPointUrl" value="${imagebook.delivery.pickpoint.url}"/>
+        <property name="pickPointLogin" value="${imagebook.delivery.pickpoint.login}"/>
+        <property name="pickPointPassword" value="${imagebook.delivery.pickpoint.password}"/>
+        <property name="pickPointIkn" value="${imagebook.delivery.pickpoint.ikn}"/>
+        <property name="pickPointReturnAddressCity" value="${imagebook.delivery.pickpoint.return.address.city}"/>
+        <property name="pickPointReturnAddressRegion" value="${imagebook.delivery.pickpoint.return.address.region}"/>
+        <property name="pickPointReturnAddressStreetAddress" value="${imagebook.delivery.pickpoint.return.address.street_address}"/>
+        <property name="pickPointReturnAddressContactPerson" value="${imagebook.delivery.pickpoint.return.address.contact.person}"/>
+        <property name="pickPointReturnAddressZip" value="${imagebook.delivery.pickpoint.return.address.zip}"/>
+        <property name="pickPointReturnAddressOrganisation" value="${imagebook.delivery.pickpoint.return.address.organisation}"/>
+        <property name="pickPointReturnAddressPhone" value="${imagebook.delivery.pickpoint.return.address.phone}"/>
+        <property name="pickPointReturnAddressComment" value="${imagebook.delivery.pickpoint.return.address.comment}"/>
+    </bean>
+
+    <bean id="messages"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>classpath:ru/imagebook/server/service/Imagebook</value>
+            </list>
+        </property>
+        <property name="defaultEncoding">
+            <value>UTF-8</value>
+        </property>
+    </bean>
+</beans>

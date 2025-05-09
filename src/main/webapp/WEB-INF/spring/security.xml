@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <global-method-security pre-post-annotations="enabled"/>
+
+    <b:bean id="exchangeAuthenticationEntryPoint"
+            class="ru.imagebook.server.exchange.ExchangeAuthenticationEntryPoint"/>
+
+    <b:bean id="exchangeAuthenticationFilter"
+            class="ru.imagebook.server.exchange.ExchangeAuthenticationFilter" />
+
+    <http request-matcher="regex" pattern="/exchange/.*" use-expressions="true"
+          entry-point-ref="exchangeAuthenticationEntryPoint">
+        <custom-filter before="FORM_LOGIN_FILTER" ref="exchangeAuthenticationFilter" />
+
+        <intercept-url pattern="/exchange/.*" access="isAuthenticated()"/>
+
+        <csrf disabled="true"/>
+        <cors configuration-source-ref="localCorsConfigurationSource"/>
+    </http>
+
+    <http request-matcher="regex" pattern="/adm/.*" use-expressions="true">
+        <!--TODO-->
+        <intercept-url pattern="/adm/.*" access="permitAll"/>
+
+        <!--TODO-->
+        <form-login login-page="/adm/login" login-processing-url="/adm/auth"
+                    authentication-failure-url="/adm/login?loginFailed" default-target-url="/adm/"/>
+
+        <csrf disabled="true"/>
+        <cors configuration-source-ref="localCorsConfigurationSource"/>
+    </http>
+
+    <b:bean id="localCorsConfigurationSource" class="ru.imagebook.server.adm.config.LocalCorsConfigurationSource"/>
+
+    <http request-matcher="regex" pattern="/admin/.*|.*\.remoteService|/gwt.admin/remotingService"
+          use-expressions="true">
+        <intercept-url pattern="/admin/login.*" access="permitAll"/>
+        <intercept-url pattern="/admin/favicon.ico" access="permitAll"/>
+        <intercept-url pattern="/admin/testRequest.*" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/admin/.*" access="isAuthenticated()"/>
+
+        <form-login login-page="/admin/login" login-processing-url="/admin/auth"
+                    authentication-failure-url="/admin/login?loginFailed" default-target-url="/admin/"/>
+        <logout logout-url="/admin/logout" success-handler-ref="customLogoutSuccessHandler"/>
+        <remember-me key="imagebookRememberMeKey" services-ref="rememberMeServices"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <http request-matcher="regex" pattern="/admin2/.*|.*\.remoteService|/gwt.admin2/remotingService"
+          use-expressions="true">
+        <intercept-url pattern="/admin2/login.*" access="permitAll"/>
+        <intercept-url pattern="/admin2/favicon.ico" access="permitAll"/>
+        <intercept-url pattern="/admin2/.*" access="hasAuthority('ADMIN')"/>
+
+        <form-login login-page="/admin2/login" login-processing-url="/admin2/auth"
+                    authentication-failure-url="/admin2/login?loginFailed" default-target-url="/admin2/"/>
+        <logout logout-url="/admin2/logout" success-handler-ref="customLogoutSuccessHandler"/>
+        <remember-me key="imagebookRememberMeKey" services-ref="rememberMeServices"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <http request-matcher="regex" pattern="/app/.*|.*\.remoteService" use-expressions="true">
+        <intercept-url pattern="/app/login.*" access="permitAll"/>
+        <intercept-url pattern="/app/favicon.ico" access="permitAll"/>
+        <intercept-url pattern="/app/activation.*" access="permitAll"/>
+        <intercept-url pattern="/app/emailActivation.*" access="permitAll"/>
+        <intercept-url pattern="/app/recoverPassword.*" access="permitAll"/>
+        <intercept-url pattern="/app/roboResult.*" access="permitAll"/>
+        <intercept-url pattern="/app/roboSuccess.*" access="permitAll"/>
+        <intercept-url pattern="/app/roboFail.*" access="permitAll"/>
+        <intercept-url pattern="/app/mailruResult.*" access="permitAll"/>
+        <intercept-url pattern="/app/mailruSuccess.*" access="permitAll"/>
+        <intercept-url pattern="/app/mailruDecline.*" access="permitAll"/>
+        <intercept-url pattern="/app/unsubscribe.*" access="permitAll"/>
+        <intercept-url pattern="/app/SimpleCaptcha.jpg" access="permitAll"/>
+        <intercept-url pattern="/app/.*" access="isAuthenticated()"/>
+
+        <form-login login-page="/app/login" login-processing-url="/app/auth"
+                    authentication-failure-url="/app/login?loginFailed"
+                    default-target-url="/app/" always-use-default-target="true"
+                    authentication-success-handler-ref="loginSuccessHandler"
+        />
+        <logout logout-url="/app/logout" success-handler-ref="customLogoutSuccessHandler"/>
+        <remember-me key="imagebookRememberMeKey" services-ref="rememberMeServices"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <http request-matcher="regex" pattern="/editor/.*|.*\.remoteService|/api/.*|/site/.*" use-expressions="true">
+        <intercept-url pattern="/editor/login.*" access="permitAll"/>
+        <intercept-url pattern="/editor/recoverPassword.*" access="permitAll"/>
+        <intercept-url pattern="/editor/favicon.ico" access="permitAll"/>
+        <intercept-url pattern="/editor/SimpleCaptcha.jpg" access="permitAll"/>
+        <intercept-url pattern="/editor/.*" access="isAuthenticated()"/>
+
+        <form-login login-page="/editor/login" login-processing-url="/editor/auth"
+                    authentication-failure-url="/editor/login?loginFailed"
+                    default-target-url="/editor/"/>
+        <logout logout-url="/editor/logout" success-handler-ref="customLogoutSuccessHandler"/>
+        <remember-me key="imagebookRememberMeKey" services-ref="rememberMeServices"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="singlePasswordAuthenticationProvider"/>
+    </authentication-manager>
+
+    <b:bean id="singlePasswordAuthenticationProvider"
+            class="ru.imagebook.server.service2.security.SinglePasswordAuthenticationProvider">
+        <b:property name="userDetailsService" ref="userDetailsService"/>
+        <b:property name="passwordEncoder" ref="passwordEncoder"/>
+    </b:bean>
+
+    <b:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <b:bean id="rememberMeServices" class="ru.imagebook.server.service2.security.ImagebookTokenBasedRememberMeServices">
+        <b:constructor-arg name="key" value="imagebookRememberMeKey"/>
+        <b:constructor-arg name="userDetailsService" ref="userDetailsService"/>
+        <b:constructor-arg name="tokenRepository" ref="tokenRepository"/>
+        <b:constructor-arg name="vendorService" ref="vendorService"/>
+        <b:property name="cookieName" value="imagebookRememberMe"/>
+        <b:property name="alwaysRemember" value="true"/>
+        <b:property name="tokenValiditySeconds" value="#{T(ru.minogin.util.server.http.Cookies).YEAR}"/>
+    </b:bean>
+
+    <b:bean id="tokenRepository"
+            class="org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl"/>
+
+    <!--<b:bean id="loginSuccessHandler" class="ru.imagebook.server.auth.LoginSuccessHandler"/>-->
+
+    <b:bean id="customLogoutSuccessHandler" class="ru.imagebook.server.service2.security.LogoutSuccessHandler"/>
+</b:beans>

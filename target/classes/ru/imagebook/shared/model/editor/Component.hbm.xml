@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model.editor">
+	<class name="ComponentImpl" proxy="Component" table="editor_component">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="index" column="`index`" not-null="true" />
+		<property name="blocked" not-null="true" />
+		<property name="componentId" column="component_id" />
+
+		<joined-subclass name="RectangleImpl" proxy="Rectangle"
+			table="editor_rectangle">
+			<key column="id" />
+			<property name="left" column="`left`" not-null="true" />
+			<property name="top" not-null="true" />
+			<property name="width" not-null="true" />
+			<property name="height" not-null="true" />
+
+			<joined-subclass name="ImageImpl" proxy="Image"
+				table="editor_image">
+				<key column="id" />
+				<property name="layoutType" column="layout_type" not-null="true" />
+				<property name="clipLeft" not-null="true" />
+				<property name="clipTop" not-null="true" />
+				<property name="clipWidth" not-null="true" />
+				<property name="clipHeight" not-null="true" />
+			</joined-subclass>
+
+			<joined-subclass name="BarcodeImpl" proxy="Barcode"
+				table="editor_barcode">
+				<key column="id" />
+			</joined-subclass>
+
+			<joined-subclass name="PositionImpl" proxy="Position"
+				table="editor_position">
+				<key column="id" />
+			</joined-subclass>
+
+			<joined-subclass name="SafeAreaImpl" proxy="SafeArea"
+				table="editor_safe_area">
+				<key column="id" />
+			</joined-subclass>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

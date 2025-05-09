@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel tag="div" styleName="panel panel-default">
+        <g:HTMLPanel tag="div" styleName="panel-heading">
+            <h3 class="panel-title">
+                <g:InlineLabel ui:field="billTitleLabel"/>
+            </h3>
+        </g:HTMLPanel>
+        <div class="table-responsive">
+            <g:FlexTable ui:field="ordersTable" styleName="table table-bordered" />
+        </div>
+        <g:HTMLPanel tag="div" ui:field="billTotalPanel" styleName="panel-footer" />
+    </g:HTMLPanel>
+</ui:UiBinder>

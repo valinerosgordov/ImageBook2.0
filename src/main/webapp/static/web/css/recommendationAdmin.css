@@ -1,0 +1,90 @@
+.admin-recommendations .create {
+    margin-bottom: 50px;
+    width: 400px;
+}
+
+.admin-recommendations .create form {
+    margin-bottom: 90px;
+}
+
+.admin-recommendations .create-controls {
+    float: right;
+}
+
+.admin-recommendations .recommendation {
+    width: 350px;
+    padding: 10px;
+    float: left;
+    margin-right: 20px;
+}
+
+.admin-recommendations .recommendation .header {
+    margin-bottom: 10px;
+    height: 70px;
+}
+
+.admin-recommendations .recommendation input.name {
+    margin-bottom: 5px;
+}
+
+.admin-recommendations .recommendation .title {
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.recommendation .header .form-group {
+    margin-bottom: 0;
+}
+
+.admin-recommendations .number {
+    margin-left: -15px;
+    position: absolute;
+}
+
+.admin-recommendations .recommendation .controls {
+    float: right;
+}
+
+.admin-recommendations .recommendation .controls button {
+    width: 120px;
+}
+
+.admin-recommendations .recommendation .content {
+    float: left;
+    height: 230px;
+}
+
+.admin-recommendations .recommendation img {
+    width: 165px;
+    cursor: pointer;
+}
+
+.glyphicon {
+   line-height: inherit;
+}
+
+.recommendation-view-model .carousel-indicators {
+    display: none;
+}
+
+.recommendation-view-model .carousel-caption {
+    font-weight: bold !important;
+    color: #000000 !important;
+    margin-bottom: -50px;
+}
+
+.recommendation-view-model .carousel-caption h4 {
+    background-color: rgba(223, 136, 25, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.form-group span.required {
+    color: red;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module rename-to="gwt.faq">
+	<source path="client">
+		<include name="faq/**" />
+		<include name="common/**" />
+	</source>
+	<source path="shared" />
+
+	<inherits name="com.google.gwt.user.User" />
+
+	<inherits name="ru.minogin.core.Core" />
+	<inherits name="ru.saasengine.SaasEngine" />
+
+	<extend-property name="locale" values="ru" />
+
+	<entry-point class="ru.imagebook.client.faq.FaqEntryPoint" />
+</module>

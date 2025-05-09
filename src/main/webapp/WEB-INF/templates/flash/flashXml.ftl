@@ -1,0 +1,19 @@
+<content
+	width="${xml.width?c}"
+	height="${xml.height?c}"
+	hcover="${xml.hardCover}"
+	transparency="true"
+	bgColor="0xF0F0F0"
+	newSpeed="0"
+	tit="${xml.title}"
+	fsize="16"
+	fcolor="0x999999"
+	ffamily="Arial"
+>
+	<#list xml.pages as page>
+		<page
+			src="http://${xml.flashUrl}/image/${xml.orderCode}/${xml.flashWidth?c}/${page.name}.jpg"
+			preLoad="true"
+		/>
+	</#list>
+</content>

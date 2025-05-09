@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <im:ModalDialog ui:field="createAlbumForm" dialogId="createAlbumFormId" okButtonTitle="Создать" cancelButtonTitle="Отмена">
+        <im:header>
+            <g:HTMLPanel tag="h4" styleName="modal-title">Новый альбом</g:HTMLPanel>
+        </im:header>
+        <im:body>
+            <g:HTMLPanel tag="form" styleName="form-horizontal">
+                <g:HTMLPanel ui:field="typeFieldGroup" tag="div" styleName="form-group">
+                    <label for="typeField" class="col-md-2 col-lg-2 control-label">Категория</label>
+                    <div class="col-md-10 col-lg-10">
+                        <g:ListBox ui:field="typeField" styleName="form-control"/>
+                    </div>
+                </g:HTMLPanel>
+                <g:HTMLPanel ui:field="productFieldGroup" tag="div" styleName="form-group">
+                    <label for="productField" class="col-md-2 col-lg-2 control-label">Альбом</label>
+                    <div class="col-md-10 col-lg-10">
+                        <g:ListBox ui:field="productField" styleName="form-control"/>
+                    </div>
+                </g:HTMLPanel>
+                <g:HTMLPanel ui:field="pageCountFieldGroup" tag="div" styleName="form-group">
+                    <label for="pageCountField" class="col-md-2 col-lg-2 control-label">Количество страниц</label>
+                    <div class="col-md-10 col-lg-10">
+                        <g:ListBox ui:field="pageCountField" styleName="form-control"/>
+                    </div>
+                </g:HTMLPanel>
+            </g:HTMLPanel>
+        </im:body>
+    </im:ModalDialog>
+</ui:UiBinder>

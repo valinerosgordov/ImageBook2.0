@@ -1,0 +1,335 @@
+hr {
+	border: 0;
+	height: 1px;
+	color: Grey;
+	background-color: Grey;
+	margin: 2px;
+}
+
+.auth-logo {
+	margin: 5px 10px 5px 5px;
+}
+
+.confirmBox-button {
+	margin: 5px !important;
+}
+
+.desktop-logo {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-left: 20px !important;
+}
+
+.desktop-titlePanel {
+	margin-top: 10px;
+	margin-left: 20px;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+.desktop-appName {
+	font-size: 26px;
+}
+
+.desktop-office {
+	font-size: 20px;
+}
+
+.desktop-title {
+	font-size: 18px;
+	margin: 10px;
+}
+
+.desktop-user-html {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.desktop-level-html {
+	margin-bottom: 10px;
+}
+
+.title {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.table {
+	border-collapse: collapse;
+	border: solid #cccccc 1px;
+}
+
+.table-header {
+	background: #eeeeee;
+	font-weight: bold;
+	text-align: center;
+}
+
+.table-bottom {
+	background: #eeeeee;
+	font-weight: bold;
+}
+
+.table td {
+	padding: 5px;
+	/* white-space: nowrap; */
+	border: solid #cccccc 1px;
+}
+
+.table-number-column {
+	text-align: right !important;
+}
+
+.table-date-column {
+	text-align: right !important;
+}
+
+.table-link-column {
+	text-align: center !important;
+}
+
+.orderButton {
+	font-weight: bold;
+	font-size: 12pt !important;
+	padding: 0.5em !important;
+	border-radius: 10px;
+}
+
+.orderTitle {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.billTitle {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.billFooter {
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+.billButton {
+	margin: 5px !important;
+}
+
+.separator {
+	margin: 20px 0px 20px 0px;
+}
+
+.order-moderation {
+	background: lightyellow;
+}
+
+.order-new {
+	background: #addfff;
+}
+
+.order-accepted {
+	background: #eeffee;
+}
+
+.order-rejected {
+	background: pink;
+}
+
+.order-error {
+    background: #ff4444;
+}
+
+.payment-methods {
+	margin: 10px 10px 10px 10px;
+}
+
+.payment-methods td {
+	padding-top: 10px;
+}
+
+.payment-methods a {
+	font-size: 16px;
+}
+
+.receipt-html {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.receipt-format-link {
+	margin-left: 30px;
+	font-size: 16px;
+}
+
+.personal-panel .section {
+	margin-top: 20px;
+}
+
+.personal-panel table td {
+	white-space: nowrap;
+}
+
+.personal-header {
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+}
+
+.personal-panel button { /* margin: 3px; */
+	
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+	white-space: nowrap;
+}
+
+.personal-addresses-delete-button {
+	margin-left: 10px;
+}
+
+.personal-addresses-table-row {
+	margin-bottom: 10px;
+}
+
+.new-orders-hint {
+	margin: 10px 5px 5px 5px;
+}
+
+.filter-status {
+	background: #ffef91;
+}
+
+.support-panel td {
+	padding: 3px;
+}
+
+.order-name td {
+	border-width: 0px !important;
+	padding: 2px;
+}
+
+.param-form-panel td {
+	padding: 3px;
+}
+
+.param-button-panel td {
+	padding: 5px;
+}
+
+.gwt-MenuItem {
+	cursor: pointer !important;
+}
+
+.move-to-basket-panel td {
+	border-width: 0px;
+	padding: 3px;
+}
+
+.accept-check-box input {
+	cursor: pointer;
+}
+
+.large-link {
+	font-size: 16px;
+}
+
+.qiwi-user-name-panel {
+	margin-top: 15px;
+}
+
+.bills-hint-panel {
+	padding-top: 20px;
+}
+
+.margin-top {
+	margin-top: 15px;
+}
+
+.padding-top {
+	padding-top: 15px;
+}
+
+.recover-panel td {
+	padding: 5px;
+}
+
+.bottom-panel td {
+	height: 45px;
+	background-color: #eeeeee;
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+	border-color: #bbbbbb;
+}
+
+.bottom-panel img {
+	border: 0px;
+}
+
+.app-panel {
+	overflow: auto !important;
+}
+
+.copy-html {
+	margin-left: 10px;
+}
+
+.logo-html {
+	margin-right: 10px;
+}
+
+.contacts-html {
+	font-size: 20px;
+	margin: 10px 20px 0px 0px;
+}
+
+.large-button {
+	font-size: 24px !important;
+}
+
+.finishing-preview {
+	border: solid 1px gray;
+	height: 200px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.order-preview {
+	border: solid 1px gray;
+	height: 70px;
+}
+
+.payment-hint {
+	margin-left: 20px;
+	width: 800px;
+}
+
+.payment-hint a {
+	font-size: 12px;
+}
+
+.editor-preview-image {
+	border: solid 1px gray;
+}
+
+.borders {
+	border: solid 1px green !important;
+}
+
+.register-anchor {
+	padding-top: 10px !important;
+}
+
+.register-cancel-button  {
+	margin-left: 20px !important;
+}
+
+.desktop-banner-html {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+	border-radius: 15px;
+	margin-top: 10px;
+	padding: 15px;
+	width: 770px;
+	word-wrap: normal;
+}

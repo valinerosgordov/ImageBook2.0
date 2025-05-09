@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="Email" table="email">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="active" />
+		<property name="email" not-null="true" />
+	</class>
+</hibernate-mapping>

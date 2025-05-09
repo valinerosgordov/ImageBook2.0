@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="UserAlbumDiscount" table="user_album_discount">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<properties name="user_album_discount_uk" unique="true">
+			<many-to-one name="user" class="User" insert="false" update="false"/>
+			<many-to-one name="product" column="product_id" not-null="true" fetch="join" class="ProductImpl"/>
+		</properties>
+
+		<property name="discountPc" column="discountPc" not-null="true" />
+	</class>
+</hibernate-mapping>

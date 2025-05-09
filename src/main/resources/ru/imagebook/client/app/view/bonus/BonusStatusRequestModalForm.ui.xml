@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:im='urn:import:ru.imagebook.client.app.view.common'>
+
+    <im:ModalDialog ui:field="bonusStatusRequestModalForm" dialogId="bonusStatusRequestModalFormId"
+                    okButtonTitle="Отправить заявку" cancelButtonTitle="Отменить">
+        <im:header>
+            <g:HTMLPanel tag="h4" styleName="modal-title">Бонусный статус</g:HTMLPanel>
+        </im:header>
+        <im:body>
+            <g:HTMLPanel tag="div">
+                <a href="http://imagebook.ru/bonus" target="_blank">Что такое бонусный статус и как получить скидку?</a>
+                <br/><br/>
+                Для получения кода укажите в этом поле ваш логин на MyWed, ссылку на ваше портфолио или
+                другую информацию, как описано по ссылке выше, и нажмите "Отправить заявку".
+                <br/><br/>
+
+                <im:XTextArea ui:field="requestField" styleName="form-control" visibleLines="3"/>
+                <g:Label ui:field="requestIsEmptyLabel" styleName="error" text="Заявка не заполнена" visible="false"/>
+            </g:HTMLPanel>
+        </im:body>
+    </im:ModalDialog>
+</ui:UiBinder>

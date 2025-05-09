@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="BonusAction" table="bonus_action">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" not-null="true" />
+		<property name="dateStart" not-null="true" />
+		<property name="dateEnd" not-null="false" />
+		<set name="codes" inverse="true" sort="natural" cascade="all">
+			<key column="action" />
+			<one-to-many class="BonusCode" />
+		</set>
+		<property name="codeLength" column="code_length" />
+		<property name="level1" not-null="true" />
+		<property name="level2" not-null="true" />
+		<property name="permanentLevel" not-null="true" />
+		<property name="discount1" not-null="true" />
+		<property name="discount2" not-null="true" />
+		<property name="repeatal" not-null="true" />
+		<property name="discountSum" />
+		<property name="discountPCenter" />
+		<many-to-one name="vendor" />
+		<set name="albums" table="bonus_action_albums" sort="natural">
+			<key column="bonus_action_id" />
+			<many-to-many column="album_id" class="ru.imagebook.shared.model.AlbumImpl" />
+		</set>
+		<filter name="vendorActions"
+			condition="vendor = :vendorId" />
+	</class>
+	
+	<filter-def name="vendorActions">
+		<filter-param name="vendorId" type="integer" />
+	</filter-def>
+</hibernate-mapping>

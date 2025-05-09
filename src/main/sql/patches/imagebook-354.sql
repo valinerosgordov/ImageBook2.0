@@ -1,0 +1,4 @@
+ALTER TABLE bonus_action 
+CHANGE COLUMN `date` `dateStart` DATETIME NOT NULL, 
+ADD COLUMN `dateEnd` DATETIME DEFAULT NULL AFTER `dateStart`
+/

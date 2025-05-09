@@ -1,0 +1,84 @@
+.main {
+	width: 100%;
+	text-align: center;
+}
+
+.form {
+	width: 500px;
+	font-family: Verdana;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+}
+
+.form h1 {
+	text-align: center;
+	font-size: 30px;
+	font-weight: normal;
+	color: #666;
+	margin-bottom: 0px;
+}
+
+.form h2 {
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	color: #666;
+	margin-top: 5px;
+}
+
+.form form, .register-table {
+	border: solid 1px lightgray;
+	padding: 10px;
+}
+
+.form table td {
+	font-size: 20px;
+}
+
+.form table td.register-text, .forgot-password, .error {
+    font-size: 17px;
+}
+
+.form input, button {
+	font-size: 20px;
+}
+
+.form table input {
+	width: 300px;
+}
+
+.form-submit {
+	margin-top: 10px;
+}
+
+.login-failed {
+	color: red;
+	margin-top: 10px;
+}
+
+.register {
+	margin-top: 15px;
+	float: left;
+}
+
+.restore {
+	margin-top: 15px;
+	text-align: right;
+}
+
+.register-in-progress-label, .register-in-progress-loader {
+    float: left;
+}
+
+.error {
+    color: red;
+    margin-top: 0.5em;
+}
+
+.blockquote {
+	display: block;
+	font-size: 80%;
+	color: #868e96;
+}

@@ -1,0 +1,31 @@
+<i-notification></i-notification>
+<div class="admin-banners">
+    <form class="form-horizontal">
+        <h3 class="title">Личный кабинет (основной баннер)</h3>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="app-banner">Текст (html):</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="app-banner" ng-model="appBannerText" name="appBannerText" rows="10"></textarea>
+            </div>
+        </div>
+        <h3 class="title">Личный кабинет (баннер доставки)</h3>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="appPaymentDelivery-banner">Текст (html):</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="appPaymentDelivery-banner" ng-model="appPaymentDeliveryBannerText" name="appPaymentDeliveryBannerText" rows="10"></textarea>
+            </div>
+        </div>
+        <h3 class="title">Онлайн-сборщик</h3>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="editor-banner">Текст (html):</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="editor-banner" ng-model="editorBannerText" name="editorBannerText" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button ng-click="updateBanners(appBannerText, appPaymentDeliveryBannerText, editorBannerText)" class="btn btn-default">Сохранить</button>
+            </div>
+        </div>
+    </form>
+</div>

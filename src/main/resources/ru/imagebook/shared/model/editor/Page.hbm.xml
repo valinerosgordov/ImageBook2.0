@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model.editor">
+	<class name="Page" table="editor_page">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="type"  not-null="true" />
+		<property name="width" not-null="true" />
+		<property name="height" not-null="true" />
+		<property name="XMargin" column="x_margin" not-null="true" />
+		<property name="YMargin" column="y_margin" not-null="true" />
+		<property name="blocked" not-null="true" />
+		<property name="common">
+			<column name="common" not-null="true" default="1" sql-type="bit" length="1" />
+		</property>
+
+		<set name="components" cascade="all-delete-orphan" sort="natural">
+			<key column="page_id" />
+			<one-to-many class="ComponentImpl" />
+		</set>
+	</class>
+</hibernate-mapping>

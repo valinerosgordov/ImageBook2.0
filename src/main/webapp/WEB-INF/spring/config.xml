@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="fileEncoding" value="UTF-8"/>
+        <property name="nullValue" value=""/>
+        <property name="locations">
+            <list>
+                <value>classpath:app.${spring.profiles.active}.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="authConfig" class="ru.imagebook.server.service.auth.AuthConfig">
+        <constructor-arg value="${imagebook.auth.connection_lifetime_sec}"/>
+        <constructor-arg value="${imagebook.auth.max_client_response_time_sec}"/>
+        <constructor-arg value="${imagebook.auth.session_lifetime_min}"/>
+    </bean>
+
+    <bean id="mailConfig" class="ru.minogin.core.server.mail.MailConfig">
+        <constructor-arg value="${imagebook.smtp.host}"/>
+        <constructor-arg value="${imagebook.smtp.user}"/>
+        <constructor-arg value="${imagebook.smtp.password}"/>
+    </bean>
+
+    <bean id="mainConfig" class="ru.imagebook.server.service.MainConfig">
+        <property name="appCode" value="${imagebook.main.app_code}"/>
+        <property name="rpcProduction" value="${imagebook.main.rpc_production}"/>
+        <property name="adminEmail" value="${imagebook.main.admin_email}"/>
+        <property name="techEmail" value="${imagebook.main.tech_email}"/>
+    </bean>
+
+    <bean id="backupConfig" class="ru.imagebook.server.service.backup.BackupConfig">
+        <property name="user" value="${imagebook.backup.user}"/>
+        <property name="password" value="${imagebook.backup.password}"/>
+        <property name="mysqldump" value="${imagebook.backup.mysqldump}"/>
+        <property name="tar" value="${imagebook.backup.tar}"/>
+        <property name="path" value="${imagebook.backup.path}"/>
+        <property name="ftpHost" value="${imagebook.backup.ftp_host}"/>
+        <property name="ftpUser" value="${imagebook.backup.ftp_user}"/>
+        <property name="ftpPass" value="${imagebook.backup.ftp_pass}"/>
+    </bean>
+
+    <bean id="exportConfig" class="ru.imagebook.server.service.ExportConfig">
+        <property name="path" value="${imagebook.export.path}"/>
+    </bean>
+
+    <bean id="fileConfig" class="ru.imagebook.server.service.FileConfig">
+        <property name="path" value="${imagebook.file.path}"/>
+        <property name="tempPath" value="${imagebook.file.temp_path}"/>
+        <!-- <property name="downloadPath" value="${imagebook.file.download_path}"
+            /> -->
+    </bean>
+
+    <bean id="docConfig" class="ru.imagebook.server.service.DocConfig">
+        <property name="templatePath" value="${imagebook.doc.template_path}"/>
+    </bean>
+
+    <bean id="serverConfig" class="ru.imagebook.server.service.ServerConfig">
+        <property name="appContextUrl"
+                  value="#{ T(org.apache.commons.lang3.ObjectUtils).defaultIfNull('${imagebook.server.app_context_url}', '') }"/>
+        <property name="flashContextUrl"
+                  value="#{ T(org.apache.commons.lang3.ObjectUtils).defaultIfNull('${imagebook.server.flash_context_url}', '') }"/>
+        <property name="calcPrefix"
+                  value="#{ T(org.apache.commons.lang3.ObjectUtils).defaultIfNull('${imagebook.server.calc_prefix}', '') }"/>
+        <property name="editorPrefix"
+                  value="#{ T(org.apache.commons.lang3.ObjectUtils).defaultIfNull('${imagebook.server.editor_prefix}', '') }"/>
+        <property name="webPrefix"
+                  value="#{ T(org.apache.commons.lang3.ObjectUtils).defaultIfNull('${imagebook.server.web_prefix}', '') }"/>
+    </bean>
+
+    <bean id="siteConfig" class="ru.imagebook.server.service.site.SiteConfig">
+        <property name="url" value="${imagebook.site.url}"/>
+        <property name="staticUrl" value="${imagebook.site.static_url}"/>
+        <property name="innerPrefix" value="${imagebook.site.inner_prefix}"/>
+        <property name="filesPath" value="${imagebook.site.files_path}"/>
+        <property name="filesUrl" value="${imagebook.site.files_url}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.service.site.CKFinderConfigImpl"/>
+
+    <bean id="loadConfig" class="ru.imagebook.server.service.load.LoadConfig">
+        <property name="host" value="${imagebook.load.host}"/>
+        <property name="user" value="${imagebook.load.user}"/>
+        <property name="password" value="${imagebook.load.password}"/>
+    </bean>
+
+    <bean id="flashConfig" class="ru.imagebook.server.service.flash.FlashConfig">
+        <property name="host" value="${imagebook.flash.host}"/>
+        <property name="user" value="${imagebook.flash.user}"/>
+        <property name="password" value="${imagebook.flash.password}"/>
+        <property name="jpegPath" value="${imagebook.flash.jpeg_path}"/>
+        <property name="flashPath" value="${imagebook.flash.flash_path}"/>
+        <property name="webFlashPath" value="${imagebook.flash.web_flash_path}"/>
+        <property name="publishPath" value="${imagebook.flash.publish_path}"/>
+    </bean>
+
+    <bean id="pdfConfig" class="ru.imagebook.server.service.pdf.PdfConfig">
+        <property name="pdfPath" value="${imagebook.pdf.pdf_path}"/>
+        <property name="host" value="${imagebook.pdf.host}"/>
+        <property name="user" value="${imagebook.pdf.user}"/>
+        <property name="password" value="${imagebook.pdf.password}"/>
+    </bean>
+
+    <bean id="smsConfig" class="ru.imagebook.server.service.notify.SmsConfig">
+        <property name="username" value="${imagebook.sms.username}"/>
+        <property name="password" value="${imagebook.sms.password}"/>
+    </bean>
+
+    <bean id="editorConfig" class="ru.imagebook.server.service.editor.EditorConfig">
+        <property name="storagePath" value="${imagebook.editor.storage_path}"/>
+        <property name="layoutPath" value="${imagebook.editor.layout_path}"/>
+        <property name="templatePath" value="${imagebook.editor.template_path}"/>
+    </bean>
+
+    <bean id="pdfTransferServiceConfig" class="ru.imagebook.server.service2.pdf.PdfTransferServiceConfig">
+        <property name="delayMs" value="${imagebook.pdftransfer.fixed_delay_msec}"/>
+        <property name="threads" value="${imagebook.pdftransfer.threads_num}"/>
+    </bean>
+
+    <bean id="requestConfig" class="ru.imagebook.server.service.request.RequestConfig">
+        <property name="deliveryHour1" value="${imagebook.request.hour1}"/>
+        <property name="deliveryHour2" value="${imagebook.request.hour2}"/>
+        <property name="printRecipients" value="${imagebook.request.print_recipients}"/>
+        <property name="bookRecipients" value="${imagebook.request.book_recipients}"/>
+        <property name="urgentRecipients" value="${imagebook.request.urgent_recipients}"/>
+    </bean>
+
+    <bean id="integrationConfig"
+          class="ru.imagebook.server.servlet.integration.IntegrationConfig">
+        <property name="accounts">
+            <map>
+                <entry key="photomaster">
+                    <bean class="ru.imagebook.server.servlet.integration.IntegrationAccount">
+                        <property name="accountCode"
+                                  value="${imagebook.integration.photomaster.code}"/>
+                    </bean>
+                </entry>
+                <entry key="pickbook">
+                    <bean class="ru.imagebook.server.servlet.integration.IntegrationAccount">
+                        <property name="accountCode"
+                                  value="${imagebook.integration.pickbook.code}"/>
+                    </bean>
+                </entry>
+                <entry key="imagebooks">
+                    <bean class="ru.imagebook.server.servlet.integration.IntegrationAccount">
+                        <property name="accountCode"
+                                  value="${imagebook.integration.imagebooks.code}"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="ru.minogin.twitter.server.config.site.TwitterConfig">
+        <property name="twitterLogin" value="${imagebook.twitter.login}"/>
+        <property name="template" value="${imagebook.twitter.template}"/>
+        <property name="oAuthConsumerKey" value="${imagebook.twitter.o_auth_consumer_key}"/>
+        <property name="oAuthConsumerSecret" value="${imagebook.twitter.o_auth_consumer_secret}"/>
+        <property name="oAuthAccessToken" value="${imagebook.twitter.o_auth_access_token}"/>
+        <property name="oAuthAccessTokenSecret" value="${imagebook.twitter.o_auth_access_token_secret}"/>
+        <property name="cacheLifetime" value="${imagebook.twitter.cache_lifetime_minutes}"/>
+        <property name="twitsCount" value="${imagebook.twitter.twits_count}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.service.pdf.VendorPdfConfig">
+        <property name="path" value="${imagebook.vendor_pdf.path}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.service.PrintEffectConfig">
+        <property name="host" value="${imagebook.printeffect.host}"/>
+        <property name="username" value="${imagebook.printeffect.username}"/>
+        <property name="password" value="${imagebook.printeffect.password}"/>
+        <property name="path" value="${imagebook.printeffect.path}"/>
+    </bean>
+
+    <bean class="ru.minogin.bill.server.config.mailru.MailruMoneyConfig">
+        <property name="url" value="${imagebook.mailru.url}"/>
+        <property name="currency" value="${imagebook.mailru.currency}"/>
+        <property name="encoding" value="${imagebook.mailru.encoding}"/>
+        <property name="shopId" value="${imagebook.mailru.shop_id}"/>
+        <property name="secretKey" value="${imagebook.mailru.secret_key}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.service.FeedbackConfig">
+        <property name="pageSize" value="${imagebook.feedback.pageSize}"/>
+        <property name="feedbackAnswerUserName" value="${imagebook.feedback.feedbackAnswerUserName}"/>
+        <property name="facebookHref" value="${imagebook.feedback.facebookHref}"/>
+        <property name="vkApiId" value="${imagebook.feedback.vkApiId}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.service.FilePathConfig">
+        <property name="entities">
+            <map>
+                <entry key="recommendation" value="${imagebook.recommendations.files_path}"/>
+                <entry key="product" value="${imagebook.product.photo_path}"/>
+                <entry key="productType" value="${imagebook.product.photo_path}/type"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="ru.imagebook.server.service2.app.delivery.DeliveryConfig">
+        <property name="majorCalcUrl" value="${imagebook.delivery.major_calc_url}"/>
+        <property name="majorCitysUrl" value="${imagebook.delivery.major_citys_url}"/>
+        <property name="majorCityName" value="${imagebook.delivery.major_city_name}"/>
+        <property name="majorClientName" value="${imagebook.delivery.major_client_name}"/>
+        <property name="majorWbCost" value="${imagebook.delivery.major_valuation_rub}"/>
+
+        <property name="pickPointSendPeriodicity" value="${imagebook.delivery.pickpoint.send.periodicity}"/>
+        <property name="pickPointTimeout" value="${imagebook.delivery.pickpoint.timeout}"/>
+        <property name="pickPointUrl" value="${imagebook.delivery.pickpoint.url}"/>
+        <property name="pickPointLogin" value="${imagebook.delivery.pickpoint.login}"/>
+        <property name="pickPointPassword" value="${imagebook.delivery.pickpoint.password}"/>
+        <property name="pickPointIkn" value="${imagebook.delivery.pickpoint.ikn}"/>
+        <property name="pickPointReturnAddressCity" value="${imagebook.delivery.pickpoint.return.address.city}"/>
+        <property name="pickPointReturnAddressRegion" value="${imagebook.delivery.pickpoint.return.address.region}"/>
+        <property name="pickPointReturnAddressStreetAddress"
+                  value="${imagebook.delivery.pickpoint.return.address.street_address}"/>
+        <property name="pickPointReturnAddressContactPerson"
+                  value="${imagebook.delivery.pickpoint.return.address.contact.person}"/>
+        <property name="pickPointReturnAddressZip" value="${imagebook.delivery.pickpoint.return.address.zip}"/>
+        <property name="pickPointReturnAddressOrganisation"
+                  value="${imagebook.delivery.pickpoint.return.address.organisation}"/>
+        <property name="pickPointReturnAddressPhone" value="${imagebook.delivery.pickpoint.return.address.phone}"/>
+        <property name="pickPointReturnAddressComment" value="${imagebook.delivery.pickpoint.return.address.comment}"/>
+
+        <property name="sdekUrl" value="${imagebook.delivery.sdek.url}"/>
+        <property name="sdekAccount" value="${imagebook.delivery.sdek.account}"/>
+        <property name="sdekSecurePassword" value="${imagebook.delivery.sdek.secure_password}"/>
+        <property name="sdekSendDelayInSec" value="${imagebook.delivery.sdek.send.delayInSec}"/>
+        <property name="sdekSendCityCode" value="${imagebook.delivery.sdek.send.cityCode}"/>
+        <property name="sdekSellerName" value="${imagebook.delivery.sdek.send.sellerName}"/>
+        <property name="sdekSellerPhone" value="${imagebook.delivery.sdek.send.sellerPhone}"/>
+    </bean>
+
+    <bean class="ru.imagebook.server.config.PickbookClientConfig">
+        <property name="editAlbumUrl" value="${imagebook.pickbook.editAlbumUrl}"/>
+        <property name="copyAlbumUrl" value="${imagebook.pickbook.copyAlbumUrl}"/>
+        <property name="processAlbumUrl" value="${imagebook.pickbook.processAlbumUrl}"/>
+        <property name="previewAlbumUrl" value="${imagebook.pickbook.previewAlbumUrl}"/>
+        <property name="publishAlbumUrl" value="${imagebook.pickbook.publishAlbumUrl}"/>
+        <property name="createUserUrl" value="${imagebook.pickbook.createUserUrl}"/>
+        <property name="attachUserEmailUrl" value="${imagebook.pickbook.attachUserEmailUrl}"/>
+        <property name="moveUserAlbumsUrl" value="${imagebook.pickbook.moveUserAlbumsUrl}"/>
+        <property name="cleanAlbumUrl" value="${imagebook.pickbook.cleanAlbumUrl}"/>
+    </bean>
+</beans>

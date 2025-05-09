@@ -1,0 +1,128 @@
+.i-btn {
+    background-color: #c6eaf5;
+    border: 3px solid #9dcbf0;
+    border-radius: 6px;
+    padding: 5px 10px;
+    color: #506a82;
+    cursor: pointer;
+}
+
+.i-btn:active {
+    background-color: #a7e0e8;
+}
+
+.i-btn:hover{
+    color: #7095b6;
+}
+
+.i-btn[disabled] {
+    color: #b2d1f3;
+
+}
+
+.i-btn:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.i-input {
+    width: 100%;
+    border: 3px solid #9dcbf0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 5px;
+    color: #5f7c95;
+    font-size: 14px;
+}
+
+.i-input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.i-alert {
+    width: 100%;
+    border: 3px solid #bae5ff;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 10px;
+    padding-right: 30px;
+    border-radius: 8px;
+    background-color: #eaf2ff;
+}
+
+.i-alert-danger {
+    border: 3px solid #ff9ea2;
+    background-color: #ffedef;
+}
+
+.i-alert-warning {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 10px;
+    padding-right: 30px;
+    border-radius: 8px;
+    border: 3px solid #faebcc;
+    background-color: #fcf8e3;
+}
+
+span.required {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.i-close {
+    width:  25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent url(images/close.png) no-repeat center top;
+    text-indent: -1000em;
+    cursor: pointer;
+    cursor: hand;
+    background-size: contain;
+}
+
+.i-close:focus {
+    border-color: #66afe9;
+    border-radius: 15px;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.i-block-ui {
+    background-color: rgba(90, 90, 90, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+}
+
+.i-global-notification {
+    position: fixed;
+    top: 0;
+    width: 600px;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 9999;
+}
+
+.i-global-notification .controls {
+    float: right;
+    margin-top: -3px;
+    margin-right: -25px;
+}
+
+.i-notice {
+    font-size: 12px;
+    color: rgba(54, 135, 232, 0.65);
+}

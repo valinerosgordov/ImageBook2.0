@@ -1,0 +1,26 @@
+.dir img {
+	margin: 5px 10px 5px 0px;
+}
+
+.dir .album {
+	padding-top: 20px;
+}
+
+.dir1 {
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+.dir2 {
+	font-size: 15px;
+	padding-left: 40px;
+	padding-top: 10px;
+}
+
+.album-section {
+	padding-top: 20px;
+}
+
+.album-photos img {
+	margin: 0px 20px 20px 0px;
+}

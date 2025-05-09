@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module rename-to="gwt.app">
+	<source path="client">
+		<include name="app/**" />
+		<include name="common/**" />
+	</source>
+	<source path="shared" />
+
+    <inherits name="com.google.common.base.Base" />
+    <inherits name="com.google.common.collect.Collect" />
+    <inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.user.theme.standard.Standard" />
+    <inherits name='com.google.web.bindery.event.EventBinder'/>
+
+    <inherits name="ru.minogin.core.Core" />
+    <inherits name="ru.minogin.gwt.Gwt" />
+    <inherits name="ru.minogin.pageflip.PageFlip" />
+	<inherits name="ru.minogin.util.Util" />
+	<inherits name="ru.saasengine.SaasEngine" />
+
+    <inherits name="org.fusesource.restygwt.RestyGWT" />
+    <inherits name="org.gwtbootstrap3.extras.bootbox.Bootbox"/>
+
+	<extend-property name="locale" values="ru" />
+
+    <entry-point class="ru.imagebook.client.app.AppEntryPoint" />
+</module>

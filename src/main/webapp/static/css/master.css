@@ -1,0 +1,515 @@
+.select-theme-button {
+    margin-top: 0.5em;
+}
+
+.recoverPasswordAnchor {
+    margin-left: 2em;
+}
+
+.registerPanel {
+    width: 600px;
+}
+
+.registerButtonCell {
+    padding-top: 1em;
+}
+
+.register-in-progress-loader {
+    margin-left: 10px;
+    margin-top: -5px;
+}
+
+.register-in-progress-label, .register-in-progress-loader {
+    float: left;
+}
+
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.loginColumn {
+    padding-left: 2em;
+}
+
+.loginButtonCell {
+    padding-top: 1em;
+    vertical-align: top;
+}
+
+.themePanel {
+    margin-bottom: 0em;
+}
+
+.theme-name {
+    margin-top: 1em;
+}
+
+.theme-description {
+    width: 700px;
+}
+
+.theme-flash {
+    margin-top: 1em;
+    padding: 0px;
+}
+
+.error {
+    color: red;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.error-text {
+    color: red;
+}
+
+.error-field {
+    border: 1px solid red;
+}
+
+.register-table td {
+    padding: 1em 0.5em 0em 0em;
+}
+
+.format-panel {
+    border: 3px solid white;
+}
+
+.format-panel-highlighted {
+    border-color: #95b5ff;
+}
+
+.format-selected {
+    border-color: #6c99ff;
+    background-color: #dbe6fe;
+}
+
+.masterDataPanel {
+    background: #f5f5f5;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.recoverButton {
+    margin-top: 0.5em;
+}
+
+.order-td {
+    padding-left: 1em;
+}
+
+.photoTable {
+    margin-top: 1em;
+}
+
+.dialogContainer {
+    width: 100%;
+}
+
+.dialogPanel {
+    width: 960px;
+    background: white;
+    margin: 0px auto;
+    margin-top: 5em;
+    padding: 0.1em 1em 1em 1em;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.elapsedHTML {
+    margin-top: 1em;
+    font-size: 24pt;
+    color: blue;
+}
+
+.orderInfoHTML {
+    border-top: 2px solid lightblue;
+    margin-top: 2em;
+}
+
+.backLink {
+    font-size: 80%;
+}
+
+.themePreview {
+    width: 720px;
+}
+
+.themePreview-active {
+
+}
+
+.themePreview-flash {
+    width: 700px;
+    /*height: 241px;*/
+    border: 10px solid #e7edf2;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+.themePreview-flash-active {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.themePreview-bottom {
+    width: 700px;
+    height: 40px;
+    display: none;
+    overflow: hidden;
+    padding: 0px 10px 10px 10px;
+    background-color: #e7edf2;
+    border-radius: 5px;
+}
+
+.themePreview-bottom-active {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.themePreview-info {
+    float: left;
+    font-size: 10pt;
+}
+
+.themePreview-info td {
+    padding-right: 1em;
+}
+
+.themePreview-orderButton {
+    float: right;
+}
+
+.themePreview-orderButton a {
+    margin-bottom: 0px !important;
+}
+
+.preview {
+    width: 702px;
+    overflow: hidden;
+}
+
+.preview-flash {
+    border: 1px solid #f0f0f0;
+    padding: 0px;
+}
+
+/*.orderButton {
+	text-align: right;
+	margin-top: 0.5em;
+}*/
+.order-album-preview-table td {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.order-album-preview {
+    /*border: 1px solid gray;*/
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.order-album-preview-a {
+    font-size: 10pt;
+    margin-top: 0.5em;
+    margin-bottom: 0em !important;
+}
+
+.orderTable-header td {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.orderTable {
+    width: 100%;
+}
+
+.orderTable td {
+    font-size: 11pt;
+    vertical-align: top;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+.order-total {
+    text-align: left;
+    font-weight: bold;
+}
+
+.totalTable td {
+    padding-right: 1em;
+}
+
+.totalRow {
+    padding-top: 0.5em;
+    font-weight: bold;
+}
+
+.quantityField {
+    width: 3em;
+}
+
+.deliveryButton {
+    margin-top: 2em;
+}
+
+.albumPanel {
+    background-color: #eeeeee;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.albumPanel table td {
+    vertical-align: top;
+    padding-right: 2em;
+}
+
+.albumPanel hr {
+    margin: 1em 0em 1em 0em;
+}
+
+.albumPanel a {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.deliveryPanel .gwt-RadioButton {
+    display: block;
+}
+
+.deliveryPanel .gwt-RadioButton label {
+    padding-left: 0.5em;
+}
+
+.orderPanel {
+    background: #f5f5f5;
+    padding: 0.1em 1em 1em 1em;
+    border-radius: 5px;
+    font-size: 11pt;
+}
+
+.totalLabel {
+    /*font-weight: bold;*/
+
+}
+
+.removeImage {
+    cursor: pointer;
+}
+
+.cart-album-info {
+    font-size: 10pt !important;
+}
+
+.cityField {
+    margin-left: 0.5em;
+    width: 20em;
+    font-size: 12pt;
+}
+
+.orderItemPanel {
+    margin-top: 1em;
+}
+
+.orderItemPanel-info {
+    font-size: 11pt;
+}
+
+.deliveryMethodsPanel {
+
+}
+
+.deliveryFieldsRadioGroup {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.deliveryMethodsTable {
+    margin-top: 0.5em;
+}
+
+.deliveryMethodsTable-header {
+    font-weight: bold;
+}
+
+.deliveryMethodsTable td {
+    padding-right: 1em;
+}
+
+.deliveryCostInfoPanel {
+    margin-top: 20px;
+}
+
+.deliveryCostInfoPanel .costInfoParamName {
+    font-weight: bold;
+}
+
+#multiship_delivery_description {
+    margin-top: 15px;
+}
+
+.payButton {
+    margin-top: 1em;
+}
+
+/*.deliveryFieldsPanel input, textarea {*/
+    /*margin-left: 1em;*/
+/*}*/
+
+.deliveryFieldsPanel td {
+    padding-top: 0.2em;
+}
+
+.delivery-form-hint {
+    font-style: italic;
+    margin-left: 1em;
+    color: gray;
+}
+
+.popularCities {
+    font-size: 10pt;
+}
+
+.popularCities a {
+    margin-left: 1em;
+}
+
+.paidOrder-ItemsPanel {
+
+}
+
+.paidOrderItem-infoPanel a {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.paidOrderItemPanel {
+    margin-top: 1em;
+}
+
+.paidOrderItemPanel td {
+    padding-right: 2em;
+}
+
+.cart-infoPanel hr {
+    height: 1px;
+    margin-top: 0.5em;
+}
+
+.cart-infoPanel a {
+    margin-top: 0.5em;
+    display: block;
+}
+
+.deliveryAjaxLoader {
+    margin-left: 1em;
+    width: 25px;
+    height: 25px;
+}
+
+.pay-totalLabel {
+    font-weight: bold;
+}
+
+.discountAnchor {
+    font-size: 10pt;
+}
+
+.discountForm td {
+    padding-left: 0.5em;
+}
+
+.discountButton {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: #99be40;
+    border-color: #99be40;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.codeField {
+    font-size: 14pt;
+    border: 1px solid lightgray;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+.login-table td, .recoverPassword-table td {
+    padding: 0.5em 0.5em 0em 0em;
+}
+
+.nonResizable-cell {
+    width: 0px;
+}
+
+.pickpointForm {
+    margin-top: 0.5em;
+}
+
+.pickpointAddress {
+    width: 500px;
+    font-size: 10pt !important;
+    cursor: pointer;
+}
+
+.pickpointCostAndTime {
+    margin-top: 5px;
+}
+
+input.hidden {
+    display: none;
+}
+
+a.action {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+    cursor: pointer;
+}
+
+.trialPanel input {
+    font-size: 12pt;
+    margin-left: 1em;
+    padding: 1px;
+}
+
+.trialPanel td {
+    padding-top: 0.2em;
+}
+
+.voucherSumLabel {
+    margin-top: 1em;
+}
+
+.trialRadio {
+    cursor: pointer;
+    display: block;
+    margin-top: 0.5em;
+}
+
+.trialRadio label {
+    cursor: pointer;
+    padding-left: 0.5em;
+}
+
+.trialRadio-disabled {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.trialRadio-disabled label {
+    padding-left: 0.5em;
+}
+
+.warning {
+    color: red;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}

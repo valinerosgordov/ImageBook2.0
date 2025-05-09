@@ -1,0 +1,121 @@
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	min-width:980px;
+}
+#CLOAK { /*�� ������������, ����� ������, ���� � ���� �������� ����� �������� ���*/
+	/*border:silver 1px solid;*/
+	width:940px;
+	margin:0 auto;
+}
+#TOP {
+	/*background:#66CCFF;
+	height:100px;*/
+}
+#CENTER-WRAP {
+	/*max-width:1130px;*/
+}
+.LEFT, .RIGHT, .content {
+	/*height:450px;*/
+}
+.LEFT {
+	width:240px;
+	/*padding-right:30px;*/
+	margin-right:-240px;
+	/*background:#FFFF99;*/
+	/*display:none;*/
+}
+
+.LEFT li {
+	list-style: none;
+}
+
+.RIGHT {
+	width:220px;
+	/*background:#FF9900;*/
+}
+.content {
+	padding:0 240px 20px 240px; /* ������� ����������� ����� */
+	/*background:#00FF99;
+	display:none;*/
+}
+
+.editor {
+	padding: 0px !important;
+}
+
+.CENTER, .LEFT {
+	margin-right:-241px;
+}
+
+
+
+.CENTER-WRAP, .CENTER, .RIGHT, .LEFT {
+	/*overflow:hidden;
+	zoom:1;*/
+}
+.CENTER, .LEFT {
+	float:left;
+}
+.MAIN, .RIGHT, .LEFT {
+	float:right;
+	/*margin-bottom:-27000px;
+	padding-bottom:27000px;*/
+}
+.MAIN, .CENTER {
+	width:100%;
+}
+
+
+#FOOTER {
+	clear:both;
+	background:#0033FF;
+}
+
+a.extra {
+	/*display:block;*/
+	font-weight:bold;
+}
+a.extra:hover {
+	height:500px;
+	/*background-color:#00FF99;*/
+}
+/* SELF CLEARING RULES */
+.CENTER {
+	display: inline-block;
+	_height: 1%;
+}
+.CENTER:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+/* Hides from IE-mac \*/
+.CENTER { display: block; }
+/* End hide from IE-mac */
+
+.cookieNotice {
+	bottom: 0;
+	width: 100%;
+	z-index: 9999;
+	position: fixed;
+	text-align: center;
+	padding: 30px;
+	box-sizing: border-box;
+	background: #fff; box-shadow: 0 0 20px 0 rgba(0,0,0,.4);
+	display: none;
+}
+
+.cookieNotice-close {
+	color: #467;
+	position: absolute;
+	right: 24px;
+	font-size: 36px;
+	line-height: 28px;
+	cursor: pointer;
+	z-index: 5;
+}

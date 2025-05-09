@@ -1,0 +1,74 @@
+.admin-feedbacks .feedback {
+    margin: 15px 0;
+    padding-bottom: 5px;
+    /*border-bottom: solid 4px #9dcbf0;*/
+}
+
+.admin-feedbacks .feedback p {
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.content p {
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.admin-feedbacks .message {
+    margin-top: 5px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.admin-feedbacks .editing-controls {
+    float: right;
+}
+
+.admin-feedbacks .text-container {
+    margin-bottom: 40px;
+}
+
+.admin-feedbacks .text-container .title {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.admin-feedbacks .text-container form {
+    margin-bottom: 90px;
+}
+
+.admin-feedbacks .feedback-text {
+    text-align: justify;
+}
+
+.admin-feedbacks .panel-answer {
+    margin-left: 80px;
+}
+
+.admin-feedbacks .feedback-controls {
+    float: right;
+    margin-top: -65px;
+    width: 220px;
+}
+
+.panel-feedback-admin {
+    margin-right: 240px;
+}
+
+.panel-feedback-admin .feedback-header {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.panel-feedback-admin .feedback-header span {
+    margin: 0 2px;
+}
+
+.panel-feedback-admin .feedback-header .create-date {
+    font-weight: normal;
+    font-size: 12px;
+    color: #808080;
+}
+

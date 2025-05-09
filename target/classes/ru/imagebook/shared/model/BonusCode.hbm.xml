@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="BonusCode" table="bonus_code">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one name="action" not-null="true" />
+		<property name="number" not-null="true" />
+		<property name="code" not-null="true" unique="true" />
+	</class>
+</hibernate-mapping>

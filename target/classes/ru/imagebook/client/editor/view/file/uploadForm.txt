@@ -1,0 +1,10 @@
+<applet name="uploadApplet" code="javaatwork.myuploader.UploadApplet.class"
+	codebase="/static/applet/" archive="myuploader-free-signed-1.13.1.jar, labels.jar" 
+  width="400" height="250">
+    <param name="uploadURL" value="${uploadUrl}">
+    <param name="postParameters" value="a,b">
+    <param name="disableDefaultFileFilter" value="true">
+    <param name="fileFilter" value="JPEG-файлы (*.jpg, *.jpeg): jpg, jpeg">
+		<param name="a" value="${sessionId}">
+		<param name="b" value="${path}">
+</applet>

@@ -1,0 +1,50 @@
+<h1>#{order.number}</h1>
+<table>
+	<tr>
+		<td>Наименование:</td>
+		<td>#{order.productName}</td>
+	</tr>
+	<tr>
+		<td>Кол-во экз.:</td>
+		<td>#{order.quantity}</td>
+	</tr>
+	<tr>
+		<td>Обрезной размер блока:</td>
+		<td>#{order.productFormat}</td>
+	</tr>
+	<tr>
+		<td>Вид переплета:</td>
+		<td>#{order.bindingText}</td>
+	</tr>
+	<tr>
+		<td>Обложка:</td>
+		<td>#{order.coverText}</td>
+	</tr>
+	<tr>
+		<td>Бумага:</td>
+		<td>#{order.paperText}</td>
+	</tr>
+	<tr>
+		<td>Кол-во страниц:</td>
+		<td>#{order.pageCount}</td>
+	</tr>
+	<tr>
+		<td>Ламинация обложки:</td>
+		<td>#{order.coverLamText}</td>
+	</tr>
+	<tr>
+		<td>Ламинация страниц:</td>
+		<td>#{order.pageLamText}</td>
+	</tr>
+	<tr>
+        <td>Цветной форзац:</td>
+        <td>#{order.flyleafHtml}</td>
+    </tr>
+    <tr>
+        <td>Калька:</td>
+        <td>#{order.vellumHtml}</td>
+    </tr>
+	<tr>
+		<td colspan="2"><a href="#{order.pdfUrl}" target="_blank">#{order.pdfUrl}</a></td>
+	</tr>
+</table>

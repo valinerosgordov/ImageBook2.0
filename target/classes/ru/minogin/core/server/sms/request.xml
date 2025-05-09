@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<request method="SendSMSFull">
+	<login>${username}</login>
+	<pwd>${password}</pwd>
+	<originator>${from}</originator>
+	<phone_to>${to}</phone_to>
+	<message>${content}</message>
+</request>

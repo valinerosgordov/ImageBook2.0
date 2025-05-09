@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="Mailing" table="mailing">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="date" not-null="true" />
+		<property name="name" not-null="true" />
+        <property name="nameFrom" not-null="true" column="name_from" />
+        <property name="emailFrom" not-null="true" column="email_from" />
+		<property name="subject" not-null="true" />
+		<property name="content" not-null="true" type="text" />
+		<property name="type" not-null="true" />
+		<property name="total" not-null="true" />
+		<property name="sent" not-null="true" />
+		<property name="report" type="text" />
+		<property name="state" not-null="true" />
+		<many-to-one name="vendor" />
+		<filter name="vendorMailing"
+			condition="vendor = :vendorId" />
+	</class>
+	
+	<filter-def name="vendorMailing">
+		<filter-param name="vendorId" type="integer" />
+	</filter-def>
+</hibernate-mapping>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model">
+	<class name="ProductImpl" proxy="Product" table="product">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="type" not-null="true" />
+		<property name="number" not-null="true" />
+		<property name="name" type="ru.imagebook.server.model.i18n.MultiStringUserType">
+			<column name="name_ru" not-null="true" />
+			<column name="name_en" not-null="true" />
+		</property>
+		<property name="availability" not-null="true" />
+		<property name="blockFormat" column="block_format" not-null="true" />
+		<property name="binding" not-null="true" />
+		<property name="cover" not-null="true" />
+		<property name="paper" not-null="true" />
+		<property name="multiplicity" not-null="true" />
+		<property name="minPageCount" column="min_page_count" not-null="true" />
+		<property name="maxPageCount" column="max_page_count" not-null="true" />
+		<property name="minQuantity" column="min_quantity" not-null="true" />
+		<property name="width" />
+		<property name="height" />
+		<property name="jpegFolder" column="jpeg_folder" />
+
+		<list name="colorRange" table="color_range">
+			<key column="product_id" />
+			<list-index column="_index" />
+			<element column="number" type="integer" not-null="true" />
+		</list>
+		<set name="accessedUsers" cascade="save-update" table="album_user_access">
+			<key column="product_id" />
+			<many-to-many column="user_id" class="User"/>
+		</set>
+		<list name="coverLamRange" table="cover_lam_range">
+			<key column="product_id" />
+			<list-index column="_index" />
+			<element column="number" type="integer" not-null="true" />
+		</list>
+
+		<list name="pageLamRange" table="page_lam_range">
+			<key column="product_id" />
+			<list-index column="_index" />
+			<element column="number" type="integer" not-null="true" />
+		</list>
+
+		<set name="albumDiscounts" inverse="true">
+			<key column="product_id" />
+			<one-to-many class="UserAlbumDiscount" />
+		</set>
+
+		<property name="blockWidth" column="block_width" />
+		<property name="blockHeight" column="block_height" />
+		<property name="upperSafeArea" column="upper_safe_area" />
+		<property name="bottomSafeArea" column="bottom_safe_area" />
+		<property name="innerSafeArea" column="inner_safe_area" />
+		<property name="outerSafeArea" column="outer_safe_area" />
+		<property name="addressPrinted" not-null="true" />
+		<property name="nonEditor" not-null="true" />
+		<property name="trialAlbum" not-null="true" />
+		<property name="trialDelivery" not-null="true" />
+		<property name="hasSpecialOffer" not-null="true" />
+		<property name="minAlbumsCountForDiscount" />
+		<property name="imagebookDiscount" />
+		<property name="phDiscount" />
+        <property name="article" formula="CONCAT('01-', LPAD(type, 2, '0'), '-', LPAD(number, 2, '0'))"/>
+		<property name="approxProdTime" column="approx_prod_time"/>
+		<property name="calcComment" column="calc_comment"/>
+		<property name="barcodeOnTheLastSpread" column="last_spread_barcode" not-null="true"/>
+		<property name="nonCalc" not-null="true"/>
+
+		<joined-subclass name="AlbumImpl" proxy="Album" table="album">
+			<key column="id" />
+			<property name="jpegCoverFolder" column="jpeg_cover_folder" />
+			<property name="size" />
+			<property name="coverSize" column="cover_size" />
+			<property name="pdfCoverWidth" column="pdf_cover_width" />
+			<property name="pdfCoverHeight" column="pdf_cover_height" />
+			<property name="hardcover" />
+			<property name="coverWidth" column="cover_width" />
+			<property name="coverHeight" column="cover_height" />
+			<property name="barcodeX" column="barcode_x" />
+			<property name="barcodeY" column="barcode_y" />
+			<property name="mphotoBarcodeX" column="mphoto_barcode_x" />
+			<property name="mphotoBarcodeY" column="mphoto_barcode_y" />
+			<property name="innerCrop" column="inner_crop" />
+			<property name="frontUpperCrop" column="front_upper_crop" />
+			<property name="frontBottomCrop" column="front_bottom_crop" />
+			<property name="frontLeftCrop" column="front_left_crop" />
+			<property name="frontRightCrop" column="front_right_crop" />
+			<property name="backUpperCrop" column="back_upper_crop" />
+			<property name="backBottomCrop" column="back_bottom_crop" />
+			<property name="backLeftCrop" column="back_left_crop" />
+			<property name="backRightCrop" column="back_right_crop" />
+			<property name="upperCoverSafeArea" column="upper_cover_safe_area" />
+			<property name="bottomCoverSafeArea" column="bottom_cover_safe_area" />
+			<property name="leftCoverSafeArea" column="left_cover_safe_area" />
+			<property name="rightCoverSafeArea" column="right_cover_safe_area" />
+			<property name="coverName" />
+			<property name="lastPageTemplate" />
+			<property name="basePrice" not-null="true" />
+			<property name="pagePrice" not-null="true" />
+			<property name="coverLaminationPrice" not-null="true" />
+			<property name="phBasePrice" not-null="true" />
+			<property name="phPagePrice" not-null="true" />
+			<property name="phCoverLaminationPrice" not-null="true" />
+			<property name="pageLaminationPrice" column="page_lam_price" not-null="true" />
+			<property name="phPageLaminationPrice" column="ph_page_lam_price" not-null="true" />
+			<property name="flyleafs" />
+			<property name="supportsVellum" column="supports_vellum" not-null="true"/>
+		</joined-subclass>
+
+		<joined-subclass name="CalendarImpl" proxy="Calendar" table="calendar">
+			<key column="id" />
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

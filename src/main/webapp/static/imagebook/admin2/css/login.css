@@ -1,0 +1,78 @@
+input {
+	cursor: pointer;
+}
+
+.main {
+	width: 100%;
+	text-align: center;
+}
+
+.form {
+	width: 30em;
+	font-family: Verdana;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 6em;
+}
+
+.form h1 {
+	font-size: 2em;
+	font-weight: normal;
+	color: #0076bc;
+	margin-bottom: 0.3em;
+}
+
+.form h2 {
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #666;
+	margin-top: 0em;
+}
+
+.form .remember-me {
+	font-size: 1em;
+	color: gray;
+	margin-top: 0.2em;
+}
+
+.form .remember-me label {
+	cursor: pointer;
+}
+
+.form .remember-me input {
+	size: 0.5em;
+}
+
+.form .label-column {
+	width: 5em;
+}
+
+.form table td {
+	font-size: 1.2em;
+}
+
+.form input {
+	font-size: 1.2em;
+}
+
+.login-input {
+	width: 15em;
+}
+
+.password-input {
+	width: 15em;
+}
+
+.form .login-button {
+	margin-top: 0.5em;
+}
+
+.form .checkbox {
+	cursor: pointer;
+}
+
+.login-failed {
+	color: red;
+	margin-top: 1em;
+}

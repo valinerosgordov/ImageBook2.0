@@ -1,0 +1,8 @@
+<div class="i-global-notification">
+    <div ng-repeat="message in messages" class="i-alert i-alert-{{message.type}}">
+        <span ng-bind="message.text"></span>
+        <div class="controls">
+            <button ng-click="close(message)" class="i-close"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+update user set photographer = 1 where level = 8;

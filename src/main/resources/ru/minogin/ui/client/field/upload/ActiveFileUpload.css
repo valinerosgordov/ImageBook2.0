@@ -1,0 +1,20 @@
+.html {
+	margin: 3px;
+	padding: 3px 1px 1px 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.htmlHighlight {
+	padding: 2px 0px 0px 1px;
+	border: 1px solid gray;
+	font-style: normal !important;
+	color: black !important;
+	background: lightblue;
+}
+
+.htmlEmpty {
+	font-style: italic;
+	color: gray;
+}

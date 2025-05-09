@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dispatcher" class="ru.minogin.core.client.flow.BaseDispatcher"
+		autowire="constructor" />
+
+	<bean id="remotingPreController"
+		class="ru.minogin.core.server.flow.remoting.RemotingPreController"
+		autowire="constructor" />
+
+	<bean id="remotingPostController"
+		class="ru.minogin.core.server.flow.remoting.RemotingPostController"
+		autowire="constructor" />
+
+	<bean id="downloadPostController"
+		class="ru.minogin.core.server.flow.download.DownloadPostController"
+		autowire="constructor" />
+
+	<bean id="authPreController" class="ru.imagebook.server.ctl.AuthPreController"
+		autowire="constructor" />
+
+	<bean id="authController" class="ru.imagebook.server.ctl.auth.AuthController"
+		autowire="constructor" />
+
+	<bean id="pricingController" class="ru.imagebook.server.ctl.PricingController"
+		autowire="constructor" />
+
+	<bean id="orderController" class="ru.imagebook.server.ctl.order.OrderController" />
+
+	<bean id="adminOrderController" class="ru.imagebook.server.ctl.AdminOrderController"
+		autowire="constructor" />
+
+	<bean id="securityPreController" class="ru.imagebook.server.ctl.SecurityPreController"
+		autowire="constructor" />
+
+	<bean id="userController" class="ru.imagebook.server.ctl.UserController" />
+
+	<bean id="productController" class="ru.imagebook.server.ctl.ProductController"
+		autowire="constructor" />
+
+	<bean id="calcController" class="ru.imagebook.server.ctl.CalcController"
+		autowire="constructor" />
+
+	<bean id="requestController" class="ru.imagebook.server.ctl.RequestController"
+		autowire="constructor" />
+
+	<bean id="actionController" class="ru.imagebook.server.ctl.action.ActionController"
+		autowire="constructor" />
+
+	<bean id="adminController" class="ru.imagebook.server.ctl.AdminController"
+		autowire="constructor" />
+
+	<bean id="billController" class="ru.imagebook.server.ctl.BillController"
+		autowire="constructor" />
+
+	<bean id="qiwiController" class="ru.imagebook.server.ctl.qiwi.QiwiController"
+		autowire="constructor" />
+
+	<bean id="siteController" class="ru.imagebook.server.ctl.site.SiteController"
+		autowire="constructor" />
+
+	<bean id="flashController" class="ru.imagebook.server.ctl.flash.FlashController"
+		autowire="constructor" />
+
+	<bean id="previewController" class="ru.imagebook.server.ctl.flash.PreviewController"
+		autowire="constructor" />
+
+	<bean id="deliveryController" class="ru.imagebook.server.ctl.delivery.DeliveryController"
+		autowire="constructor" />
+
+	<bean id="finishingController" class="ru.imagebook.server.ctl.finishing.FinishingController"
+		autowire="constructor" />
+
+	<bean id="editorController" class="ru.imagebook.server.ctl.editor.EditorController"
+		autowire="constructor" />
+
+	<bean id="registerController" class="ru.imagebook.server.ctl.RegisterController"
+		autowire="constructor" />
+
+	<bean id="vendorController" class="ru.imagebook.server.ctl.vendor.VendorController"
+		autowire="constructor" />
+
+	<bean id="mailingController" class="ru.imagebook.server.ctl.MailingController"
+		autowire="constructor" />
+</beans>

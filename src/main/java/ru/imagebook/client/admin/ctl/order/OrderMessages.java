@@ -1,0 +1,44 @@
+package ru.imagebook.client.admin.ctl.order;
+
+public interface OrderMessages {
+	String SHOW_ORDERS = "7ef20012-fed8-42f4-a2f3-63d1b092cdba";
+	String LOAD_ORDERS = "9ef11116-88f1-4ab5-8ffb-5b2bfca6c3c6";
+	String LOAD_ORDERS_RESULT = "b0b18745-f48e-4c80-b190-087e3f9ac8f1";
+	String LOAD_DATA_FOR_ADD_FORM = "bb035aa7-1847-485c-8201-6fe366435575";
+	String SHOW_ADD_FORM = "ed53a55e-604c-433f-b48c-200299aa364e";
+	String PRODUCT_SELECTED = "2877b51e-d520-4f59-be91-e2361962ffa5";
+	String DATA_LOADED = "9736bad3-d8dc-4ecc-9173-4007db098c62";
+	String LOAD_USERS = "d6dbde53-4bcf-4258-8d63-2402ec290e45";
+	String LOAD_USERS_RESULT = "8e176aa6-0c89-4c2b-a70f-1dc39b3c98c2";
+	String ADD_ORDER = "338902c1-4a12-4867-a13a-e5f15d228cea";
+	String ADD_ORDER_RESULT = "17dda8bf-980e-4769-8414-89a22ffec489";
+	String DELETE_ORDERS = "09f04251-373a-4e39-b2cd-cc42c19a9fb1";
+	String DELETE_ORDERS_REQUEST = "78af6f10-7c97-484a-a991-45312ada721e";
+	String DELETE_ORDERS_RESULT = "fa4d844d-6efc-41f5-8816-6652c73e45f3";
+	String SHOW_EDIT_FORM = "dfb98600-f2f2-4842-b60e-eccbf7bc406e";
+	String UPDATE_ORDER = "c3ad0e65-2a65-4dcf-b4ac-6a19201e5c83";
+	String UPDATE_ORDER_RESULT = "41ab7021-fa45-4c80-b2e9-f51b8a81caba";
+	String SHOW_FILTER = "d20cc925-7a57-49dd-a7ab-20abc6bb0e99";
+	String APPLY_FILTER = "168e0b28-b748-415d-a806-14d7bfca4361";
+	String APPLY_FILTER_RESULT = "2240625f-b168-4276-ae34-fd70f21e3dfe";
+	String COPY_ORDER = "ea03ba80-2fc2-4d19-bed2-bddd6191ecfc";
+	String COPY_ORDER_RESULT = "04cb2e1d-ec95-479e-bb89-e07bad2aa20b";
+	String NOTIFY_NEW_ORDERS = "72438ee2-cc5a-4db3-af8e-0c732e2a9434";
+	String NOTIFY_NEW_ORDERS_RESULT = "0b17386b-fab4-438f-a1ca-1ff019dac44f";
+	String ORDER_STATE_IS_NOT_MODERATION = "a8b0a249-1b85-4b3c-a982-888b42eceab9";
+	String NOTIFY_ORDERS_ACCEPTED = "a49aa600-3bcb-4934-8bcb-ba004a0e6bf3";
+	String ORDER_STATE_IS_NOT_ACCEPTED = "99c2c52d-6126-4f2a-a992-dc7926383bac";
+	String NOTIFY_ORDERS_ACCEPTED_RESULT = "b446114c-c9c0-4fe8-b161-16ed15b6ecc3";
+	String TRIAL_ORDER_EXISTS = "20c62797-e5c9-4d53-93ab-bb5d96e99c95";
+	String SEARCH = "cd9ff3da-6f7e-4f2a-b1e1-8bf5b4ec61f9";
+	String ORDER_NUMBER_EXISTS = "4c4de480-ec4b-4375-99e3-6a8ed05990c3";
+//	String EXPORT = "9090eede-2473-4ac2-bc9a-8ddfb40a4284";
+	String GENERATE_PDF = "d16a3626-5ab6-42c4-b3de-3cd9cf7540a5";
+	String GENERATE_PDF_RESULT = "32ed9e20-b6d2-476b-9f77-772e52fd3b92";
+	String REGENERATE_ORDER_REQUEST = "45062064-a860-418e-ae64-0e634ba0bbc2";
+	String REGENERATE_ORDER_REQUEST_RESULT = "e9dc4f61-0a26-4f09-9edb-a8393184ac8e";
+	String REGENERATE_ORDER = "e40e4545-e59d-4a37-bb73-4c9d9457dcc7";
+	String PUBLISH_WEB_FLASH = "3e9fd464-2926-49aa-b31d-dee55e7a2cc3";
+	String PUBLISH_WEB_FLASH_RESULT = "537a05b9-88a7-485a-8e95-ec5a4a4cd03b";
+	String VENDOR_UPDATE_ORDER = "961755f1-1c04-401d-a93f-2f1e4cb5d2be";
+}

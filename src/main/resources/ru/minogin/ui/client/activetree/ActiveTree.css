@@ -1,0 +1,24 @@
+.treePanel {
+	display: inline-block;
+}
+
+.itemPanel {
+	cursor: pointer;
+}
+
+.itemPanelHover {
+	background-color: #eee;
+}
+
+.itemPanelSelected {
+	background-color: #c4e3ff;
+}
+
+.drop {
+	border-bottom: 2px dashed blue;
+}
+
+.dropChild {
+	border-left: 2px dashed blue; 
+	border-bottom: 2px dashed blue;
+}

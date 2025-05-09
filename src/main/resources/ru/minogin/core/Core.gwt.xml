@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module>
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.json.JSON' />
+	<inherits name="com.google.gwt.activity.Activity" />
+
+	<inherits name="com.google.gwt.inject.Inject" />
+
+	<inherits name='com.extjs.gxt.ui.GXT' />
+
+	<source path='client' />
+	<source path='shared' />
+
+	<extend-property name="locale" values="ru" />
+	<extend-property name="locale" values="en" />
+</module>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE module SYSTEM "gwt-module.dtd">
+
+<module rename-to="gwt.admin2">
+	<inherits name="com.google.gwt.activity.Activity" />
+
+	<inherits name="ru.minogin.core.Core" />
+	<inherits name="ru.minogin.gwt.Gwt" />
+	<inherits name="ru.minogin.undo.Undo" />
+	<inherits name="ru.minogin.ui.Ui" />
+	<inherits name="ru.minogin.upload.Upload" />
+
+	<entry-point class="ru.imagebook.client.admin2.Admin2EntryPoint" />
+
+	<source path="client">
+		<include name="admin2/**" />
+	</source>
+	<source path="shared">
+		<include name="model/**" />
+	</source>
+
+	<extend-property name="locale" values="ru" />
+	<set-property name="locale" value="ru" />
+</module>

@@ -1,0 +1,9 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	xmlns:f="urn:import:ru.minogin.ui.client.field"
+	xmlns:u="urn:import:ru.minogin.ui.client.field.upload">
+	
+	<g:HTMLPanel>
+        <div id="recommendationApp"></div>
+	</g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,28 @@
+package ru.imagebook.client.admin.ctl.product;
+
+public interface ProductMessages {
+	String SHOW_ALBUMS = "c7d7bb6c-1599-49d8-b9e3-b028cbd10c88";
+	String LOAD_ALBUMS = "31a6b1da-6429-4d62-bf07-0c3386694311";
+	String LOAD_ALBUMS_RESULT = "ac01d089-567a-4104-aa2c-5f575bb7d0bf";
+	String SHOW_ADD_ALBUM_FORM = "e39e1c86-85c3-471d-af1b-7ba763753588";
+	String LOAD_COLORS_FOR_ALBUM = "1e809d39-8b04-45d9-942e-93fcfd9795c3";
+	String LOAD_COLORS_FOR_ALBUM_RESULT = "75852072-34d8-474a-8675-b2f25227533c";
+	String ADD_ALBUM = "473321c6-a9b0-4557-a62b-8d0ab871daec";
+	String ALBUM_ADDED = "64062101-642c-499b-ad28-19c83e0637c0";
+	String DELETE_ALBUMS_REQUEST = "0d07bec6-169f-45e0-b842-c3e4bd498e3a";
+	String DELETE_ALBUMS = "52a3ada9-432c-4b41-9a60-472a76532596";
+	String ALBUMS_DELETED = "4e799fd3-6289-457b-8e96-6c610b52c2e9";
+	String ALBUM_USED = "7bde3d97-c696-4577-b6a6-2bd733bed3b2";
+	String SHOW_EDIT_ALBUM_FORM = "35efb034-2da3-4135-9d4a-25a6f563f6d8";
+	String UPDATE_ALBUM = "bac6f1d0-b091-46a3-a2df-fb4ce2873e27";
+	String ALBUM_UPDATED = "ddaf51e5-f46c-4581-83d2-02a57e45fb36";
+	String SHOW_COLORS = "b4a59e0c-60cf-4ae6-8d28-e17195a796e6";
+	String LOAD_COLORS = "8f9fcdf7-4f4d-4c99-a919-3434ff9bfa47";
+	String LOAD_COLORS_RESULT = "46b539c4-ab9c-46b2-82c0-387aaca36ec4";
+	String UPDATE_COLORS = "01a941eb-88ed-4648-aece-cd2c06f7ca67";
+	String COLORS_UPDATED = "7ad04edd-0c60-4fcc-888d-7613a5d8e297";
+	String DELETE_COLORS_REQUEST = "5b9a4d5f-aa90-4374-a1c5-d83900ebd5c2";
+	String DELETE_COLORS = "d8ab641e-7cba-4eef-bdf6-d656f78a7c9a";
+	String COLORS_DELETED = "1e8eb6c0-103d-4188-bd3c-bb8dfbb86af2";
+	String COLOR_USED_ERROR = "8c295458-e868-43b0-9e29-10dd454650b1";
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model.editor">
+	<class name="EditorNotification" table="editor_notification">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="user">
+			<column name="user_id" not-null="true" sql-type="int"/>
+		</property>
+
+		<property name="type">
+			<column name="type" not-null="true" sql-type="int" length="3" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,113 @@
+<i-notification></i-notification>
+<div class="admin-feedbacks">
+    <h2>Отзывы</h2>
+    <div class="text-container">
+        <div class="panel-group">
+            <h3 class="title">Текстовая часть страницы отзывов</h3>
+            <button ng-click="edit(); editingText = true;" ng-hide="editingText" class="btn btn-default">Редактировать</button>
+        </div>
+        <div class="alert alert-warning panel-feedback-admin" ng-show="contextStarted && !feedbackText && !editingText">
+            <b>Отсутствует текстовая часть страницы отзывов. Добавьте пожалуйста.</b>
+        </div>
+        <p i-unsafe="feedbackText" ng-hide="editingText" class="feedback-text panel-feedback-admin"></p>
+        <form ng-if="editingText" class="panel-feedback-admin">
+            <div class="panel-group">
+                <textarea class="feedback-text panel-group" ck-editor ng-model="updatedFeedbackText"
+                          id="feedbackText" name="feedbackText" rows="10" cols="80"></textarea>
+            </div>
+            <div class="editing-controls">
+                <button ng-click="cancel()" class="btn btn-danger">Отмена</button>
+                <button ng-click="saveText(updatedFeedbackText)" class="btn btn-success">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="feedbacks" ng-if="contextStarted">
+        <pagination total-items="config.totalItems" ng-model="$parent.currentPage" max-size="20" num-pages="numPages"
+                    class="pagination-sm" boundary-links="true" rotate="false" items-per-page="config.pageSize"
+                    previous-text="Предыдущая" next-text="Следующая" first-text="Первая" last-text="Последняя">
+        </pagination>
+
+        <div class="alert alert-danger" role="alert" ng-show="errorPageLoading">
+            Ошибка при загрузке страницы.
+        </div>
+        <div class="alert alert-warning panel-feedback-admin" ng-show="!feedbacks.length && !errorPageLoading">
+            <b>У вас еще нет отзывов.</b>
+        </div>
+
+        <div ng-show="feedbacks" ng-repeat="feedback in feedbacks" class="feedback" ng-controller="FeedbackItemAdminController">
+            <div class="panel panel-default panel-feedback-admin">
+                <div class="panel-body">
+                    <div class="feedback-header" ng-init="user = feedback.feedbackUser">
+                        <span title="Имя">{{feedback.feedbackUser.name}}</span>
+                        <span class="separator" ng-show="user.profession">/</span>
+                        <span title="Должность" ng-show="user.profession">{{user.profession}}</span>
+                        <span class="separator" ng-show="user.office">/</span>
+                        <span title="Организация" ng-show="user.office">{{user.office}}</span>
+                        <span class="separator">/</span>
+                        <a href="mailto:{{feedback}}" title="Email">{{user.email}}</a>
+                        <span class="separator" ng-show="user.phone">/</span>
+                        <span title="Телефон" ng-show="user.phone">{{user.phone}}</span>
+                        <span class="separator"></span>
+                        <span class="create-date" title="Дата создания">({{feedback.createDate | date:'dd/MM/yyyy hh:mm'}})</span>
+                    </div>
+                    <div class="message" ng-bind="feedback.message"></div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-feedback-admin panel-answer" ng-if="answeringOnFeedback">
+                <div class="panel-body">
+                    <form class="feedback-answer-form">
+                        <div class="panel-group">
+                            <textarea ck-editor ng-model="answer" rows="10" cols="80"></textarea>
+                        </div>
+                        <div class="editing-controls">
+                            <button ng-click="$parent.answeringOnFeedback = false" class="btn btn-danger">Отмена</button>
+                            <button ng-click="saveFeedbackAnswer(feedback, answer, answeringOnFeedback)" class="btn btn-success">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="feedback-controls" ng-hide="answeringOnFeedback">
+                <button ng-click="answeringOnFeedback = true" class="btn btn-success" ng-hide="feedback.feedbackAnswer">Ответить</button>
+                <button ng-click="deleteFeedback(feedback)" class="btn btn-danger">Удалить</button>
+            </div>
+
+            <div ng-if="feedback.feedbackAnswer" ng-hide="editingFeedbackAnswer">
+                <div class="panel panel-default panel-answer panel-feedback-admin">
+                    <div class="panel-body">
+                        <div class="answer">
+                            <div class="feedback-header">
+                                <span title="Имя" ng-bind="config.feedbackAnswerUserName"></span>
+                                <span class="create-date" title="Дата создания">({{feedback.feedbackAnswer.answerDate | date:'dd/MM/yyyy hh:mm'}})</span>
+                            </div>
+                            <div i-unsafe="feedback.feedbackAnswer.answer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-controls">
+                    <button ng-click="editFeedbackAnswer(feedback.feedbackAnswer)" class="btn btn-success">Редактировать</button>
+                    <button ng-click="deleteFeedbackAnswer(feedback.feedbackAnswer, feedback)" class="btn btn-danger">Удалить</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default panel-feedback-admin panel-answer" ng-if="editingFeedbackAnswer">
+                <div class="panel-body">
+                    <form class="feedback-answer-form">
+                        <div class="panel-group">
+                            <textarea ck-editor ng-model="updatedFeedbackAnswer" rows="10" cols="80"></textarea>
+                        </div>
+                        <div class="editing-controls">
+                            <button ng-click="cancelEditFeedbackAnswer()" class="btn btn-danger">Отмена</button>
+                            <button ng-click="updateFeedbackAnswer(updatedFeedbackAnswer, feedback.feedbackAnswer)" class="btn btn-success">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <pagination total-items="config.totalItems" ng-model="$parent.currentPage" max-size="20" num-pages="numPages"
+                    class="pagination-sm" boundary-links="true" rotate="false" items-per-page="config.pageSize"
+                    previous-text="Предыдущая" next-text="Следующая" first-text="Первая" last-text="Последняя">
+        </pagination>
+    </div>
+</div>

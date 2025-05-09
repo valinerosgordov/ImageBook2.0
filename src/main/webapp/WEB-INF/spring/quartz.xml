@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- backup job -->
+
+    <bean name="backupJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="ru.imagebook.server.service.backup.BackupJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="service" value-ref="backupService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="backupTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="backupJob"/>
+        <property name="cronExpression" value="${imagebook.backup.time} ?"/>
+    </bean>
+
+    <!-- requests jobs -->
+
+    <bean name="requestDailyJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass"
+                  value="ru.imagebook.server.service.request.RequestJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="service" value-ref="requestService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="requestDailyTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean
+">
+        <property name="jobDetail" ref="requestDailyJob"/>
+        <property name="cronExpression" value="${imagebook.request.daily.time} ?"/>
+    </bean>
+
+    <bean name="requestWeeklyJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass"
+                  value="ru.imagebook.server.service.request.RequestWeeklyJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="service" value-ref="requestService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="requestWeeklyTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="requestWeeklyJob"/>
+        <property name="cronExpression" value="${imagebook.request.weekly.time} ?"/>
+    </bean>
+
+    <!-- clean job -->
+
+    <bean name="cleanJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="ru.imagebook.server.service.clean.CleanJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="service" value-ref="cleanService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="cleanTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="cleanJob"/>
+        <property name="cronExpression" value="${imagebook.clean.time} ?"/>
+    </bean>
+
+    <bean name="notificationPickupJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass"
+                  value="ru.imagebook.server.service.order.NotificationPickupDeliveryJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="service" value-ref="orderService"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="notificationPickupTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="notificationPickupJob"/>
+        <property name="cronExpression" value="${imagebook.notifyPickupDelivery.time}"/>
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="backupTrigger"/>
+                <ref bean="cleanTrigger"/>
+                <ref bean="requestDailyTrigger"/>
+                <ref bean="requestWeeklyTrigger"/>
+                <ref bean="notificationPickupTrigger"/>
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,38 @@
+#app {
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
+.url {
+	margin-top: 5px;
+}
+
+.unpublish-button {
+	margin-left: 40px !important;
+}
+
+.flash-code-panel td {
+	padding: 5px;
+}
+
+.publishField input {
+	cursor: pointer;
+}
+
+.flashes-table {
+	border-collapse: collapse;
+}
+
+.flashes-table-title td {
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+}
+
+.flashes-table-cell td {
+	border-top: 1px solid gray;
+	padding: 10px;
+}
+
+.code-button {
+}

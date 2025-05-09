@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.imagebook.shared.model.site">
+	<class name="PageImpl" proxy="Page" table="site_page">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="key" column="`key`" unique="true" />
+		<property name="name" />
+		<property name="h1" />
+		<property name="title" />
+		<property name="keywords" />
+		<property name="description" />
+		<property name="content" type="text" />
+		<property name="wide" not-null="true" />
+		<property name="url" />
+		<property name="targetBlank" column="target_blank" not-null="true" />
+		<property name="footer" type="text" />
+		<many-to-one name="tag" column="tag_id" class="Tag" />
+
+		<joined-subclass name="SectionImpl" proxy="Section"
+			table="site_section">
+			<key column="id" />
+			<many-to-one name="parent" column="parent_id" class="SectionImpl" />
+			<set name="children" sort="natural" inverse="true">
+				<key column="parent_id" />
+				<one-to-many class="SectionImpl" />
+			</set>
+			<property name="level" not-null="true" />
+			<property name="number" not-null="true" />
+			<property name="hidden" not-null="true" />
+		</joined-subclass>
+
+		<joined-subclass name="TopSectionImpl" proxy="TopSection"
+			table="site_top_section">
+			<key column="id" />
+			<property name="number" not-null="true" />
+		</joined-subclass>
+
+		<joined-subclass name="DocumentImpl" proxy="Document"
+			table="site_document">
+			<key column="id" />
+			<many-to-one name="folder" column="folder_id" class="Folder" />
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

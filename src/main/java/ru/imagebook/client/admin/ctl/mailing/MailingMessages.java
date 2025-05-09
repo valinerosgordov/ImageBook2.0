@@ -1,0 +1,17 @@
+package ru.imagebook.client.admin.ctl.mailing;
+
+public interface MailingMessages {
+	String SHOW_SECTION = "f0569e09-f9d2-4f44-9620-17739d43e495";
+	String ADD_MAILING = "fa059a42-8718-4e68-9584-b0ea6ddcbe4f";
+	String UPDATE_MAILING = "c6155ac4-b5c6-4b09-acf8-55d3a97baba9";
+	String DELETE_MAILINGS = "df036235-ac9b-4bcc-9268-3b5f662e1e11";
+	String TEST_MAILING = "10e4c18c-713e-479d-aba2-98661dad525b";
+	String SEND_MAILING = "2254b258-2019-4a49-ab36-5fd6ba989239";
+	String SEND_MAILING_RESULT = "5d127db9-9ff3-4254-a0d7-861286a51e4d";
+	String ADD_MAILING_RESULT = "428bfe54-3183-4b84-8bed-ac7256da1b79";
+	String UPDATE_MAILING_RESULT = "fe2a3881-6c19-4b0d-9d20-90627ce1e129";
+	String LOAD_MAILINGS = "5241fc72-dd2b-4ce9-a1b2-986e9bc852cf";
+	String LOAD_MAILINGS_RESULT = "8179976d-707d-4216-886b-f46bda8945fe";
+	String DELETE_MAILINGS_RESULT = "10450141-e92b-4dbd-946c-7e47db4b19f6";
+	String TEST_MAILING_RESULT = "86c5358f-822f-404d-9389-5c565340b753";
+}
