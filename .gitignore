@@ -1,0 +1,12 @@
+/adm/dist
+/adm/node_modules
+/target
+/.classpath
+/.project
+/imagebook.launch
+/.externalToolBuilders
+/.settings
+.idea
+*.iml
+app.*.properties
+!app.dev.properties
